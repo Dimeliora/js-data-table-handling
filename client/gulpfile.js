@@ -178,13 +178,9 @@ const injectFavicons = () =>
             )
         )
         .pipe(
-            gulpIf(
-                IS_PROD,
-                htmlMin({
-                    collapseWhitespace: true,
-                    removeComments: true,
-                })
-            )
+            htmlMin({
+                collapseWhitespace: true,
+            })
         )
         .pipe(dest(DEST_PATH, { overwrite: true }));
 

@@ -1,0 +1,56 @@
+.header {
+    &__title {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $gray-light;
+    }
+
+    &__filter {
+        display: flex;
+        list-style-type: none;
+    }
+
+    &__filter-item {
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__filter-tab {
+        padding: 0 10px;
+        border: none;
+        background-color: transparent;
+        color: inherit;
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: 500;
+        transition: color 0.2s ease-out;
+        cursor: pointer;
+
+        &--active,
+        &:hover,
+        &:focus-visible {
+            color: $black;
+        }
+    }
+
+    &__amount {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &__amount-value {
+        color: $purple;
+        font-weight: 700;
+    }
+}

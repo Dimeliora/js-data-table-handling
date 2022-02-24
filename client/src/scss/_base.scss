@@ -12,7 +12,7 @@ body {
     margin: 0;
     background-color: $white;
     color: $gray;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 h1,
@@ -37,4 +37,10 @@ button:focus {
     width: 1px;
     height: 1px;
     margin: -1px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 0 100px;
 }
