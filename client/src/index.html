@@ -42,7 +42,31 @@
                     </div>
                 </div>
             </div>
-            <div class="table"></div>
+            <div class="table">
+                <div class="table__panel">
+                    <button class="table__filters-button">
+                        <svg class="table__filters-icon">
+                            <use href="/icons/icon-sprite.svg#filter" />
+                        </svg>
+                        Filter
+                    </button>
+                    <div class="table__search">
+                        <svg class="table__search-icon">
+                            <use href="/icons/icon-sprite.svg#search" />
+                        </svg>
+                        <input
+                            id="search-input"
+                            type="text"
+                            class="table__search-input"
+                            placeholder="Search Users by Name, Email or Date"
+                        />
+                        <label for="search-input" class="visually-hidden"
+                            >Search Users by Name, Email or Date</label
+                        >
+                    </div>
+                    <button class="table__pay-button">Pay dues</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
