@@ -27,7 +27,8 @@
     }
 
     &__filter-tab {
-        padding: 0 10px;
+        position: relative;
+        padding: 0 4px;
         border: none;
         background-color: transparent;
         color: inherit;
@@ -37,10 +38,29 @@
         transition: color 0.2s ease-out;
         cursor: pointer;
 
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -9px;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 100%;
+            background-color: $black;
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
         &--active,
         &:hover,
         &:focus-visible {
             color: $black;
+        }
+
+        &--active {
+            &::after {
+                opacity: 1;
+            }
         }
     }
 
