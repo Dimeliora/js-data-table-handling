@@ -1,0 +1,42 @@
+.filters {
+    position: absolute;
+    z-index: 100;
+    min-width: 200px;
+    padding: 20px 10px 10px 10px;
+    border: 1px solid $gray-light;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+
+    &__title {
+        padding: 0 10px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+    &__section {
+        &:not(:last-child) {
+            padding-bottom: 5px;
+            border-bottom: 1px solid $white;
+        }
+
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 5px;
+    }
+
+    .filters__radio {
+        padding: 7px 10px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease-out;
+
+        &:hover,
+        &:focus-visible {
+            background-color: $white;
+        }
+    }
+}

@@ -44,12 +44,166 @@
             </div>
             <div class="data">
                 <div class="data__panel panel">
-                    <button class="panel__filters-button">
-                        <svg class="panel__filters-icon">
-                            <use href="/icons/icon-sprite.svg#filter" />
-                        </svg>
-                        Filter
-                    </button>
+                    <div class="panel__filters">
+                        <button class="panel__filters-button">
+                            <svg class="panel__filters-icon">
+                                <use href="/icons/icon-sprite.svg#filter" />
+                            </svg>
+                            Filter
+                        </button>
+                        <div class="panel__filters-dropdown filters">
+                            <div class="filters__section">
+                                <div class="filters__title">Sort by:</div>
+                                <div
+                                    class="filters__radio radio radio--sparsed"
+                                >
+                                    <label
+                                        for="sort-by-default"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="sort-by-default"
+                                            name="sort-by"
+                                            value="default"
+                                        />
+                                        Default
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--sparsed"
+                                >
+                                    <label
+                                        for="sort-by-first-name"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="sort-by-first-name"
+                                            name="sort-by"
+                                            value="first-name"
+                                        />
+                                        First Name
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--sparsed"
+                                >
+                                    <label
+                                        for="sort-by-last-name"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="sort-by-last-name"
+                                            name="sort-by"
+                                            value="last-name"
+                                        />
+                                        Last Name
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--sparsed"
+                                >
+                                    <label
+                                        for="sort-by-due-date"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="sort-by-due-date"
+                                            name="sort-by"
+                                            value="due-date"
+                                        />
+                                        Due Date
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--sparsed"
+                                >
+                                    <label
+                                        for="sort-by-last-login"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="sort-by-last-login"
+                                            name="sort-by"
+                                            value="last-login"
+                                        />
+                                        Last Login
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filters__section">
+                                <div class="filters__title">Users:</div>
+                                <div
+                                    class="filters__radio radio radio--left-sided radio--sparsed"
+                                >
+                                    <label
+                                        for="filter-by-all"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="filter-by-all"
+                                            name="filter-by"
+                                            value="all"
+                                        />
+                                        All
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--left-sided radio--sparsed"
+                                >
+                                    <label
+                                        for="filter-by-active"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="filter-by-active"
+                                            name="filter-by"
+                                            value="active"
+                                        />
+                                        Active
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="filters__radio radio radio--left-sided radio--sparsed"
+                                >
+                                    <label
+                                        for="filter-by-inactive"
+                                        class="radio__label"
+                                    >
+                                        <input
+                                            type="radio"
+                                            class="radio__input"
+                                            id="filter-by-inactive"
+                                            name="filter-by"
+                                            value="inactive"
+                                        />
+                                        Inactive
+                                        <span class="radio__mark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel__search">
                         <svg class="panel__search-icon">
                             <use href="/icons/icon-sprite.svg#search" />

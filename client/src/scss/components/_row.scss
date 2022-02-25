@@ -3,7 +3,7 @@
     grid-template-columns: 40px 45px 0.7fr 1fr 0.7fr 60px 130px;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 1px solid #d9d5ec;
+    border-bottom: 1px solid $blue-light;
 
     &__name {
         color: $black;
