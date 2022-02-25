@@ -1,0 +1,58 @@
+.row {
+    display: grid;
+    grid-template-columns: 40px 45px 0.7fr 1fr 0.7fr 60px 130px;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #d9d5ec;
+
+    &__name {
+        color: $black;
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &__email {
+        margin-top: 5px;
+        font-size: 1.4rem;
+    }
+
+    &__user-last-login {
+        margin-top: 5px;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    &__payment-date {
+        margin-top: 5px;
+        color: $black;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    &__amount {
+        text-align: right;
+    }
+
+    &__amount-value {
+        color: $black;
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &__amount-currency {
+        margin-top: 5px;
+        font-size: 1.2rem;
+    }
+
+    &__more {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+    }
+
+    &__more-text {
+        margin-right: 15px;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+}
