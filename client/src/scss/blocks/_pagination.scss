@@ -1,0 +1,54 @@
+.pagination {
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    &__selector {
+        margin-right: 50px;
+        cursor: pointer;
+    }
+
+    &__selector-header {
+        display: flex;
+        align-items: center;
+        transition: color 0.2s ease-out;
+
+        &:focus-visible,
+        &:hover {
+            color: $purple;
+
+            .pagination__selector-icon {
+                fill: $purple;
+            }
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &__selector-icon {
+        width: 8px;
+        height: 5px;
+        margin-left: 10px;
+        fill: $gray;
+        transition: fill 0.2s ease-out;
+    }
+
+    &__dropdown {
+    }
+
+    &__pages {
+        margin-right: 50px;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button {
+        & + .pagination__button {
+            margin-left: 50px;
+        }
+    }
+}

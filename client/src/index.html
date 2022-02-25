@@ -43,29 +43,30 @@
                 </div>
             </div>
             <div class="table">
-                <div class="table__panel">
-                    <button class="table__filters-button">
-                        <svg class="table__filters-icon">
+                <div class="table__panel panel">
+                    <button class="panel__filters-button">
+                        <svg class="panel__filters-icon">
                             <use href="/icons/icon-sprite.svg#filter" />
                         </svg>
                         Filter
                     </button>
-                    <div class="table__search">
-                        <svg class="table__search-icon">
+                    <div class="panel__search">
+                        <svg class="panel__search-icon">
                             <use href="/icons/icon-sprite.svg#search" />
                         </svg>
                         <input
                             id="search-input"
                             type="text"
-                            class="table__search-input"
+                            class="panel__search-input"
                             placeholder="Search Users by Name, Email or Date"
                         />
                         <label for="search-input" class="visually-hidden"
                             >Search Users by Name, Email or Date</label
                         >
                     </div>
-                    <button class="table__pay-button">Pay dues</button>
+                    <button class="panel__pay-button">Pay dues</button>
                 </div>
+
                 <table class="table__data">
                     <thead>
                         <tr class="table__header">
@@ -229,6 +230,43 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="table__pagination pagination">
+                    <div class="pagination__selector">
+                        <div class="pagination__selector-header" tabindex="0">
+                            Rows per page: <span>10</span>
+                            <svg class="pagination__selector-icon">
+                                <use href="/icons/icon-sprite.svg#dropdown" />
+                            </svg>
+                        </div>
+                        <div class="pagination__dropdown"></div>
+                    </div>
+                    <div class="pagination__pages">
+                        <span>1-10</span>
+                        of
+                        <span>267</span>
+                    </div>
+                    <div class="pagination__controls">
+                        <button
+                            class="pagination__button icon-button icon-button--small"
+                            title="Previous"
+                            aria-label="Previous"
+                        >
+                            <svg class="icon-button__icon">
+                                <use href="/icons/icon-sprite.svg#left" />
+                            </svg>
+                        </button>
+                        <button
+                            class="pagination__button icon-button icon-button--small"
+                            title="Next"
+                            aria-label="Next"
+                        >
+                            <svg class="icon-button__icon">
+                                <use href="/icons/icon-sprite.svg#right" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

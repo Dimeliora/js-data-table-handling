@@ -17,4 +17,10 @@
         height: 16px;
         fill: $gray;
     }
+
+    &--small {
+        width: 6px;
+        height: 10px;
+        @include round-highlight($gray-light-transparent, 20px);
+    }
 }
