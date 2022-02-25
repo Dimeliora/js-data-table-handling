@@ -105,12 +105,9 @@
         }
     }
 
-    &__data {
-    }
-
     &__header {
         display: grid;
-        grid-template-columns: 40px 45px 0.7fr 1fr 0.7fr 60px 130px;
+        grid-template-columns: 85px 0.7fr 1fr 0.7fr 190px;
         align-items: center;
         margin: 0 -20px;
         padding: 12px 20px;
@@ -126,8 +123,5 @@
     &__check {
         display: flex;
         align-items: center;
-    }
-
-    &__header-check-all {
     }
 }
