@@ -46,13 +46,38 @@
 
     &__more {
         justify-self: end;
+    }
+
+    &__more-button {
         display: flex;
         align-items: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        color: $gray;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.2s ease-out;
+
+        &:hover,
+        &:focus-visible {
+            color: $purple;
+
+            .row__more-icon {
+                fill: $purple;
+            }
+        }
     }
 
     &__more-text {
         margin-right: 15px;
-        font-size: 1.2rem;
-        font-weight: 500;
+    }
+
+    &__more-icon {
+        width: 20px;
+        height: 20px;
+        fill: $gray;
+        transition: fill 0.2s ease-out;
     }
 }
