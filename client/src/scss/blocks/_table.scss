@@ -1,13 +1,6 @@
 .table {
-    margin-top: 20px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-
-    &__data {
-        width: 100%;
-        border-collapse: collapse;
-    }
+    width: 100%;
+    border-collapse: collapse;
 
     &__header {
         display: grid;
@@ -31,11 +24,5 @@
     &__check {
         display: flex;
         align-items: center;
-    }
-
-    &__pagination {
-        display: flex;
-        justify-content: flex-end;
-        padding: 15px 20px;
     }
 }
