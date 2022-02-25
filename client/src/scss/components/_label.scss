@@ -1,0 +1,43 @@
+.label {
+    position: relative;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 10px;
+    background-color: $white;
+    color: $gray;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $gray;
+    }
+
+    &__text {
+        padding-left: 10px;
+    }
+
+    &--primary {
+        @include label-modifier(#e6e6f2, $blue);
+    }
+
+    &--warning {
+        @include label-modifier($yellow-light, $yellow);
+    }
+
+    &--danger {
+        @include label-modifier($red-light, $red);
+    }
+
+    &--success {
+        @include label-modifier($green-light, $green);
+    }
+}

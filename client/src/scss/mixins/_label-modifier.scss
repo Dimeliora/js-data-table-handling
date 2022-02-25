@@ -1,0 +1,8 @@
+@mixin label-modifier($bg-color, $color) {
+    background-color: $bg-color;
+    color: $color;
+
+    &::before {
+        background-color: $color;
+    }
+}
