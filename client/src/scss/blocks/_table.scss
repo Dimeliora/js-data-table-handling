@@ -4,99 +4,6 @@
     background-color: #ffffff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
-    &__panel {
-        display: flex;
-        align-items: center;
-        padding: 15px 20px;
-    }
-
-    &__filters-button {
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-        padding: 10px;
-        border: 1px solid $gray-light;
-        border-radius: 6px;
-        background-color: transparent;
-        color: $black;
-        font-size: 1.6rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: box-shadow 0.2s ease-out;
-
-        &:focus-visible,
-        &:hover {
-            box-shadow: 0 0 4px $purple;
-        }
-    }
-
-    &__filters-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        fill: $steel;
-    }
-
-    &__search {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 392px;
-        padding: 10px 15px 10px 10px;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        background-color: $light;
-        transition: all 0.2s ease-out;
-
-        &:focus-within,
-        &:hover {
-            border-color: $purple;
-            background-color: #ffffff;
-        }
-    }
-
-    &__search-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        fill: $steel;
-    }
-
-    &__search-input {
-        width: 100%;
-        border: none;
-        background-color: transparent;
-        color: $gray;
-        font-size: 1.2rem;
-
-        &:focus-visible {
-            outline: none;
-        }
-
-        &::placeholder {
-            color: $gray;
-        }
-    }
-
-    &__pay-button {
-        margin-left: auto;
-        padding: 10px;
-        border: 1px solid $purple;
-        border-radius: 6px;
-        background-color: $purple;
-        color: #ffffff;
-        font-size: 1.6rem;
-        text-transform: uppercase;
-        transition: all 0.2s ease-out;
-        cursor: pointer;
-
-        &:focus-visible,
-        &:hover {
-            background-color: transparent;
-            color: $purple;
-        }
-    }
-
     &__data {
         width: 100%;
         border-collapse: collapse;
@@ -124,5 +31,11 @@
     &__check {
         display: flex;
         align-items: center;
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px 20px;
     }
 }
