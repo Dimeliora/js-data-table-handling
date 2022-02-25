@@ -30,7 +30,6 @@
     }
 
     .filters__radio {
-        padding: 7px 10px;
         border-radius: 4px;
         transition: background-color 0.2s ease-out;
 
@@ -38,5 +37,9 @@
         &:focus-visible {
             background-color: $white;
         }
+    }
+
+    .radio__label {
+        padding: 7px 10px;
     }
 }
