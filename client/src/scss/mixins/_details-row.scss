@@ -1,0 +1,7 @@
+@mixin details-row {
+    display: grid;
+    grid-template-columns: 120px 0.5fr 1fr;
+    column-gap: 20px;
+    padding: 12px 80px 12px 95px;
+    border-bottom: 1px solid $blue-light;
+}
