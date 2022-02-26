@@ -1,10 +1,15 @@
 .more {
     position: absolute;
     z-index: 100;
+    display: none;
     padding: 5px;
     border-radius: 6px;
     background-color: #ffffff;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+
+    &--visible {
+        display: block;
+    }
 
     &__close {
         @include dropdown-close-button();
