@@ -1,0 +1,54 @@
+.more {
+    position: absolute;
+    z-index: 100;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+
+    &__close {
+        @include dropdown-close-button();
+    }
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &__item {
+        &:last-child {
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px solid $white;
+        }
+
+        &--success {
+            .more__button {
+                color: $green;
+            }
+        }
+
+        &--danger {
+            .more__button {
+                color: $red;
+            }
+        }
+    }
+
+    &__button {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: $black;
+        font-size: 1.4rem;
+        text-align: left;
+        transition: background-color 0.2s ease-out;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            background-color: $white;
+        }
+    }
+}

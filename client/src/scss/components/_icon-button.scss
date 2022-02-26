@@ -19,8 +19,11 @@
     }
 
     &--small {
-        width: 6px;
-        height: 10px;
         @include round-highlight($gray-light-transparent, 20px);
+
+        .icon-button__icon {
+            width: 8px;
+            height: 8px;
+        }
     }
 }

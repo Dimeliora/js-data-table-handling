@@ -80,4 +80,8 @@
         fill: $gray;
         transition: fill 0.2s ease-out;
     }
+
+    &__more-dropdown {
+        position: relative;
+    }
 }
