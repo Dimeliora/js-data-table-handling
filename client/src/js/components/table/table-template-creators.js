@@ -33,7 +33,12 @@ export const createTableRowHTML = (user) => {
     return `
         <tr class="table__row row" data-user="${id}">
             <td class="row__check checkbox">
-                <input type="checkbox" class="checkbox__input" id="${id}" />
+                <input
+                    type="checkbox"
+                    class="checkbox__input"
+                    id="${id}"
+                    data-check
+                />
                 <label for="${id}" class="checkbox__label">
                     <span class="visually-hidden">Check user ${name}</span>
                 </label>
@@ -44,6 +49,7 @@ export const createTableRowHTML = (user) => {
                     class="icon-button"
                     title="Show Details"
                     aria-label="Show Details"
+                    data-details-button
                 >
                     <svg class="icon-button__icon">
                         <use href="/icons/icon-sprite.svg#down" />
@@ -82,17 +88,18 @@ export const createTableRowHTML = (user) => {
             </td>
 
             <td class="row__more">
-                <button class="row__more-button">
+                <button class="row__more-button" data-more-button>
                     <span class="row__more-text">View More</span>
                     <svg class="row__more-icon">
                         <use href="/icons/icon-sprite.svg#more" />
                     </svg>
                 </button>
-                <div class="row__more-dropdown more">
+                <div class="row__more-dropdown more" data-more-dropdown>
                     <button
                         class="more__close icon-button icon-button--small"
                         title="Close"
                         aria-label="Close"
+                        data-more-close-button
                     >
                         <svg class="icon-button__icon">
                             <use href="/icons/icon-sprite.svg#close" />
@@ -105,10 +112,10 @@ export const createTableRowHTML = (user) => {
                         <li class="more__item">
                             <button class="more__button">View Profile</button>
                         </li>
-                        <li class="more__item more__item--success">
+                        <li class="more__item more__item--success" data-user-activate>
                             <button class="more__button">Activate User</button>
                         </li>
-                        <li class="more__item more__item--danger">
+                        <li class="more__item more__item--danger" data-user-delete>
                             <button class="more__button">Delete</button>
                         </li>
                     </ul>
