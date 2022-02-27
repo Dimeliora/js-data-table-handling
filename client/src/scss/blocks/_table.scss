@@ -26,6 +26,12 @@
     }
 
     &__details {
+        --details-height: 0;
+        display: none;
         background-color: $light;
+
+        &--visible {
+            display: block;
+        }
     }
 }

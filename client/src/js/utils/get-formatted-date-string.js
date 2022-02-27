@@ -14,10 +14,10 @@ const monthShortNames = [
 ];
 
 export const getFormattedDateString = (date) => {
-    const dateString = new Date(date).toLocaleDateString('fr');
+    const dateString = new Date(date).toLocaleDateString();
 
     const formattedDateString = dateString
-        .split('/')
+        .split('.')
         .map((datePart, index) => {
             if (index === 1) {
                 return monthShortNames[Number(datePart) - 1];

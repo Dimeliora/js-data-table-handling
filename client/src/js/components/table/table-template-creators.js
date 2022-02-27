@@ -112,15 +112,63 @@ export const createTableRowHTML = (user) => {
                         <li class="more__item">
                             <button class="more__button">View Profile</button>
                         </li>
-                        <li class="more__item more__item--success" data-user-activate>
-                            <button class="more__button">Activate User</button>
+                        <li class="more__item more__item--success">
+                            <button class="more__button" data-user-activate>
+                                Activate User
+                            </button>
                         </li>
-                        <li class="more__item more__item--danger" data-user-delete>
-                            <button class="more__button">Delete</button>
+                        <li class="more__item more__item--danger">
+                            <button class="more__button" data-user-delete>
+                                Delete
+                            </button>
                         </li>
                     </ul>
                 </div>
             </td>
+        </tr>
+    `;
+};
+
+export const createDetailsTableHTML = ({ id }) => {
+    return `
+        <tr class="table__details" data-details>
+            <td colspan="7">
+                <div class="table__details-wrapper">
+                    <table class="details">
+                        <thead>
+                            <tr class="details__header">
+                                <th>Date</th>
+                                <th>User activity</th>
+                                <th>
+                                    <div class="details__info">
+                                        Detail
+                                        <svg class="details__info-icon">
+                                            <use href="/icons/icon-sprite.svg#info" />
+                                        </svg>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody data-details="${id}">
+                            {{details}}
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    `;
+};
+
+export const createDetailsTableRowHTML = (details) => {
+    const { date, activity, detail } = details;
+
+    return `
+        <tr class="details__row">
+            <td class="details__date">
+                ${getFormattedDateString(date)}
+            </td>
+            <td class="details__activity">${activity}</td>
+            <td class="details__description">${detail}</td>
         </tr>
     `;
 };

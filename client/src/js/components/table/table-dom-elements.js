@@ -6,9 +6,15 @@ export const tableElements = {
 export const getClickedTableRowElement = (event) =>
     event.target.closest('[data-user]');
 
+export const getDetailsTableElement = (tableRowElm) =>
+    tableRowElm.nextElementSibling;
+
 export const getTableRowInnerElements = (tableRowElm) => ({
     tableRowCheckElm: tableRowElm.querySelector('[data-check]'),
-    tableRowDetailsElm: tableRowElm.querySelector('[data-details-button]'),
+    tableRowDetailsButtonElm: tableRowElm.querySelector(
+        '[data-details-button]'
+    ),
+
     tableRowMoreElm: tableRowElm.querySelector('[data-more-button]'),
     tableRowMoreDropdownElm: tableRowElm.querySelector('[data-more-dropdown]'),
     tableRowMoreCloseElm: tableRowElm.querySelector('[data-more-close-button]'),

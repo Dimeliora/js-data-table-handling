@@ -1,5 +1,9 @@
 import { tableElements } from './table-dom-elements';
 
+export const userDetailsVisibilityToggler = (detailsElement) => {
+    detailsElement.classList.toggle('table__details--visible');
+};
+
 export const userMoreShowDropdownHandler = (dropdownElm) => {
     const visibleDropdown =
         tableElements.tableBodyElm.querySelector('.more--visible');
