@@ -1,4 +1,6 @@
+import ee from '../../utils/event-emitter';
 import usersState from '../../state/users-state';
+import filtersState from '../../state/filters-state';
 import {
     createTableRowHTML,
     createDetailsTableHTML,
@@ -30,6 +32,24 @@ const tableHandler = () => {
     window.addEventListener('click', userMoreDropdownOutsideClickHandler);
 
     tableBodyElm.addEventListener('click', tableClickHandler);
+
+    ee.on('header/filter-changed', filterUsersTable);
+};
+
+const filterUsersTable = () => {
+    const { tableBodyElm } = tableElements;
+
+    const users = usersState.getAllUsers();
+    const { paymentFilter } = filtersState.getFilters();
+
+    let filteredUsers = users;
+    if (paymentFilter !== 'all') {
+        filteredUsers = users.filter(
+            (user) => user.paymentStatus === paymentFilter
+        );
+    }
+
+    renderTableRows(tableBodyElm, filteredUsers);
 };
 
 const renderTableRows = (tableBodyElm, users) => {
@@ -130,5 +150,7 @@ const deleteUserHandler = (tableRowElement) => {
         tableElements.tableBodyElm.innerHTML = createTableRowPlaceholderHTML();
     }
 };
+
+
 
 tableHandler();

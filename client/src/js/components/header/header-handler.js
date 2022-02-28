@@ -1,3 +1,4 @@
+import ee from '../../utils/event-emitter';
 import filtersState from '../../state/filters-state';
 import { headerElms } from './header-dom-elements';
 import { updateHeaderFilterActiveClass } from './header-view-updates';
@@ -17,6 +18,8 @@ const headerFilterClickHandler = ({ target }) => {
 
     const { paymentFilter } = filtersState.getFilters();
     updateHeaderFilterActiveClass(paymentFilter);
+
+    ee.emit('header/filter-changed');
 };
 
 headerHandler();
