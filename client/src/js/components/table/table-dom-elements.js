@@ -14,6 +14,7 @@ export const getTableRowInnerElements = (tableRowElm) => ({
     tableRowDetailsButtonElm: tableRowElm.querySelector(
         '[data-details-button]'
     ),
+    tableRowUserStatusElm: tableRowElm.querySelector('[data-user-status]'),
     tableRowMoreElm: tableRowElm.querySelector('[data-more-button]'),
     tableRowMoreDropdownElm: tableRowElm.querySelector('[data-more-dropdown]'),
     tableRowMoreCloseElm: tableRowElm.querySelector('[data-more-close-button]'),

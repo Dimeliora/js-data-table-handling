@@ -29,6 +29,7 @@ export const createTableRowHTML = (user) => {
     const userActivityClass = isActive ? 'label--primary' : '';
     const paymentStatusClass = paymentStatusClassMap[paymentStatus];
     const paymentStatusText = paymentStatusTextMap[paymentStatus];
+    const activationButtonText = isActive ? 'Deactivate' : 'Activate';
 
     return `
         <tr class="table__row row" data-user="${id}">
@@ -63,7 +64,7 @@ export const createTableRowHTML = (user) => {
             </td>
 
             <td class="row__user-status">
-                <div class="row__user-activity label ${userActivityClass}">
+                <div class="row__user-activity label ${userActivityClass}" data-user-status>
                     <span class="label__text">${userActivityText}</span>
                 </div>
                 <div class="row__user-last-login">
@@ -114,7 +115,7 @@ export const createTableRowHTML = (user) => {
                         </li>
                         <li class="more__item more__item--success">
                             <button class="more__button" data-user-activate>
-                                Activate User
+                                ${activationButtonText} User
                             </button>
                         </li>
                         <li class="more__item more__item--danger">

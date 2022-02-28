@@ -15,11 +15,12 @@ import {
     userMoreShowDropdownHandler,
     userMoreHideDropdownHandler,
     userMoreDropdownOutsideClickHandler,
+    updateTableRowView,
 } from './table-view-updates';
 
 const tableHandler = () => {
     const { tableBodyElm } = tableElements;
-    const users = usersState.getUsers();
+    const users = usersState.getAllUsers();
 
     renderTableRows(tableBodyElm, users);
 
@@ -57,23 +58,44 @@ const tableClickHandler = (event) => {
         tableRowMoreElm,
         tableRowMoreDropdownElm,
         tableRowMoreCloseElm,
+        tableRowActivateElm,
     } = getTableRowInnerElements(tableRow);
 
-    if (event.composedPath().includes(tableRowDetailsButtonElm)) {
+    if (isElementClicked(event, tableRowDetailsButtonElm)) {
         const tableRowDetailsElm = getDetailsTableElement(tableRow);
         userDetailsVisibilityToggler(
             tableRowDetailsButtonElm,
             tableRowDetailsElm
         );
+        return;
     }
 
-    if (event.composedPath().includes(tableRowMoreElm)) {
+    if (isElementClicked(event, tableRowMoreElm)) {
         userMoreShowDropdownHandler(tableRowMoreDropdownElm);
+        return;
     }
 
-    if (event.composedPath().includes(tableRowMoreCloseElm)) {
+    if (isElementClicked(event, tableRowMoreCloseElm)) {
         userMoreHideDropdownHandler(tableRowMoreDropdownElm);
+        return;
     }
+
+    if (isElementClicked(event, tableRowActivateElm)) {
+        userStatusChangeHandler(tableRow);
+        return;
+    }
+};
+
+const isElementClicked = (event, element) =>
+    event.composedPath().includes(element);
+
+const userStatusChangeHandler = (tableRowElement) => {
+    const userId = tableRowElement.dataset.user;
+
+    usersState.updateUserStatus(userId);
+
+    const user = usersState.getUser(userId);
+    updateTableRowView(tableRowElement, user);
 };
 
 tableHandler();

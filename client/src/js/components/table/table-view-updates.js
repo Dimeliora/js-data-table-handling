@@ -1,4 +1,5 @@
-import { tableElements } from './table-dom-elements';
+import { tableElements, getTableRowInnerElements } from './table-dom-elements';
+import { createTableRowHTML } from './table-template-creators';
 
 export const userDetailsVisibilityToggler = (
     tableRowDetailsButtonElm,
@@ -46,4 +47,8 @@ export const userMoreDropdownOutsideClickHandler = (event) => {
     ) {
         userMoreHideDropdownHandler(visibleDropdown);
     }
+};
+
+export const updateTableRowView = (tableRowElement, user) => {
+    tableRowElement.innerHTML = createTableRowHTML(user);
 };
