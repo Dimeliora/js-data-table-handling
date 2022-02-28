@@ -1,14 +1,20 @@
 class FiltersState {
     paymentFilter = 'all';
+    searchValue = '';
+
+    getFilters() {
+        return {
+            paymentFilter: this.paymentFilter,
+            searchValue: this.searchValue,
+        };
+    }
 
     setPaymentFilter(value) {
         this.paymentFilter = value;
     }
 
-    getFilters() {
-        return {
-            paymentFilter: this.paymentFilter,
-        };
+    setSearchValue(value) {
+        this.searchValue = value.toLowerCase();
     }
 }
 

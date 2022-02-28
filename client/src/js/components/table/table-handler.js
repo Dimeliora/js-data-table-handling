@@ -25,34 +25,52 @@ import {
 
 const tableHandler = () => {
     const { tableBodyElm } = tableElements;
-    const users = usersState.getAllUsers();
 
-    renderTableRows(tableBodyElm, users);
+    updateTable();
 
     window.addEventListener('click', userMoreDropdownOutsideClickHandler);
 
     tableBodyElm.addEventListener('click', tableClickHandler);
 
-    ee.on('header/filter-changed', filterUsersTable);
+    ee.on('header/filter-changed', updateTable);
+
+    ee.on('panel/search-value-changed', updateTable);
 };
 
-const filterUsersTable = () => {
-    const { tableBodyElm } = tableElements;
-
+const updateTable = () => {
     const users = usersState.getAllUsers();
-    const { paymentFilter } = filtersState.getFilters();
+    const filters = filtersState.getFilters();
 
-    let filteredUsers = users;
+    const handledUsersList = handleUsersList(users, filters);
+
+    renderTableRows(handledUsersList);
+};
+
+const handleUsersList = (users, filters) => {
+    const { paymentFilter, searchValue } = filters;
+
+    let handledUsers = users;
+
     if (paymentFilter !== 'all') {
-        filteredUsers = users.filter(
+        handledUsers = users.filter(
             (user) => user.paymentStatus === paymentFilter
         );
     }
 
-    renderTableRows(tableBodyElm, filteredUsers);
+    if (searchValue.length > 0) {
+        handledUsers = handledUsers.filter(
+            (user) =>
+                user.name.toLowerCase().includes(searchValue) ||
+                user.email.toLowerCase().includes(searchValue)
+        );
+    }
+
+    return handledUsers;
 };
 
-const renderTableRows = (tableBodyElm, users) => {
+const renderTableRows = (users) => {
+    const { tableBodyElm } = tableElements;
+
     let tableRowsMarkup;
     if (users.length > 0) {
         tableRowsMarkup = users.map(createDetailsTableMarkup).join(' ');
@@ -150,7 +168,5 @@ const deleteUserHandler = (tableRowElement) => {
         tableElements.tableBodyElm.innerHTML = createTableRowPlaceholderHTML();
     }
 };
-
-
 
 tableHandler();
