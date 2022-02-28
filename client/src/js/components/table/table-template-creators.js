@@ -130,6 +130,16 @@ export const createTableRowHTML = (user) => {
     `;
 };
 
+export const createTableRowPlaceholderHTML = () => {
+    return `
+        <tr>
+            <td class="table__placeholder" colspan="7">
+                No users found
+            </td>
+        </tr>
+    `;
+};
+
 export const createDetailsTableHTML = ({ id }) => {
     return `
         <tr class="table__details">

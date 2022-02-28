@@ -3,6 +3,7 @@ import {
     createTableRowHTML,
     createDetailsTableHTML,
     createDetailsTableRowHTML,
+    createTableRowPlaceholderHTML,
     createDetailsTableRowPlaceholderHTML,
 } from './table-template-creators';
 import {
@@ -32,27 +33,32 @@ const tableHandler = () => {
 };
 
 const renderTableRows = (tableBodyElm, users) => {
-    const tableRowsMarkup = users
-        .map((user) => {
-            let tableRow = createTableRowHTML(user);
-            tableRow += createDetailsTableHTML(user);
-
-            let detailsTableRows;
-            if (user.details.length > 0) {
-                detailsTableRows = user.details
-                    .map(createDetailsTableRowHTML)
-                    .join(' ');
-            } else {
-                detailsTableRows = createDetailsTableRowPlaceholderHTML();
-            }
-
-            tableRow = tableRow.replace('{{details}}', detailsTableRows);
-
-            return tableRow;
-        })
-        .join(' ');
+    let tableRowsMarkup;
+    if (users.length > 0) {
+        tableRowsMarkup = users.map(createDetailsTableMarkup).join(' ');
+    } else {
+        tableRowsMarkup = createTableRowPlaceholderHTML();
+    }
 
     tableBodyElm.innerHTML = tableRowsMarkup;
+};
+
+const createDetailsTableMarkup = (user) => {
+    let tableRow = createTableRowHTML(user);
+    tableRow += createDetailsTableHTML(user);
+
+    let detailsTableRows;
+    if (user.details.length > 0) {
+        detailsTableRows = user.details
+            .map(createDetailsTableRowHTML)
+            .join(' ');
+    } else {
+        detailsTableRows = createDetailsTableRowPlaceholderHTML();
+    }
+
+    tableRow = tableRow.replace('{{details}}', detailsTableRows);
+
+    return tableRow;
 };
 
 const tableClickHandler = (event) => {
@@ -118,6 +124,11 @@ const deleteUserHandler = (tableRowElement) => {
     usersState.deleteUser(userId);
 
     deleteTableRowAndDetails(tableRowElement);
+
+    const users = usersState.getAllUsers();
+    if (users.length === 0) {
+        tableElements.tableBodyElm.innerHTML = createTableRowPlaceholderHTML();
+    }
 };
 
 tableHandler();
