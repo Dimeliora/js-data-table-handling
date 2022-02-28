@@ -120,7 +120,7 @@ export const createTableRowHTML = (user) => {
                         </li>
                         <li class="more__item more__item--danger">
                             <button class="more__button" data-user-delete>
-                                Delete
+                                Delete User
                             </button>
                         </li>
                     </ul>

@@ -17,6 +17,10 @@ class UsersState {
             user.isActive = !user.isActive;
         }
     }
+
+    deleteUser(userId) {
+        this.users = this.users.filter((user) => user.id !== userId);
+    }
 }
 
 export default new UsersState();

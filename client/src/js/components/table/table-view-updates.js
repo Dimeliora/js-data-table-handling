@@ -52,3 +52,9 @@ export const userMoreDropdownOutsideClickHandler = (event) => {
 export const updateTableRowView = (tableRowElement, user) => {
     tableRowElement.innerHTML = createTableRowHTML(user);
 };
+
+export const deleteTableRowAndDetails = (tableRowElement) => {
+    const detailsRow = tableRowElement.nextElementSibling;
+    detailsRow.remove();
+    tableRowElement.remove();
+};

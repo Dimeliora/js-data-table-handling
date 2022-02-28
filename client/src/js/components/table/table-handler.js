@@ -16,6 +16,7 @@ import {
     userMoreHideDropdownHandler,
     userMoreDropdownOutsideClickHandler,
     updateTableRowView,
+    deleteTableRowAndDetails,
 } from './table-view-updates';
 
 const tableHandler = () => {
@@ -59,6 +60,7 @@ const tableClickHandler = (event) => {
         tableRowMoreDropdownElm,
         tableRowMoreCloseElm,
         tableRowActivateElm,
+        tableRowDeleteElm,
     } = getTableRowInnerElements(tableRow);
 
     if (isElementClicked(event, tableRowDetailsButtonElm)) {
@@ -84,6 +86,11 @@ const tableClickHandler = (event) => {
         userStatusChangeHandler(tableRow);
         return;
     }
+
+    if (isElementClicked(event, tableRowDeleteElm)) {
+        deleteUserHandler(tableRow);
+        return;
+    }
 };
 
 const isElementClicked = (event, element) =>
@@ -96,6 +103,14 @@ const userStatusChangeHandler = (tableRowElement) => {
 
     const user = usersState.getUser(userId);
     updateTableRowView(tableRowElement, user);
+};
+
+const deleteUserHandler = (tableRowElement) => {
+    const userId = tableRowElement.dataset.user;
+
+    usersState.deleteUser(userId);
+
+    deleteTableRowAndDetails(tableRowElement);
 };
 
 tableHandler();
