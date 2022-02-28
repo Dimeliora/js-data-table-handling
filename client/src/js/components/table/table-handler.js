@@ -61,7 +61,10 @@ const tableClickHandler = (event) => {
 
     if (event.composedPath().includes(tableRowDetailsButtonElm)) {
         const tableRowDetailsElm = getDetailsTableElement(tableRow);
-        userDetailsVisibilityToggler(tableRowDetailsElm);
+        userDetailsVisibilityToggler(
+            tableRowDetailsButtonElm,
+            tableRowDetailsElm
+        );
     }
 
     if (event.composedPath().includes(tableRowMoreElm)) {

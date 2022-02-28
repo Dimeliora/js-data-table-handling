@@ -46,7 +46,7 @@ export const createTableRowHTML = (user) => {
 
             <td class="row__details">
                 <button
-                    class="icon-button"
+                    class="row__details-button icon-button"
                     title="Show Details"
                     aria-label="Show Details"
                     data-details-button
@@ -131,9 +131,9 @@ export const createTableRowHTML = (user) => {
 
 export const createDetailsTableHTML = ({ id }) => {
     return `
-        <tr class="table__details" data-details>
+        <tr class="table__details">
             <td colspan="7">
-                <div class="table__details-wrapper">
+                <div class="table__details-wrapper" data-details>
                     <table class="details">
                         <thead>
                             <tr class="details__header">

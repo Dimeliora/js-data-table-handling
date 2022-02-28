@@ -5,6 +5,14 @@
     padding: 10px 20px;
     border-bottom: 1px solid $blue-light;
 
+    &__details-button {
+        transition: transform 0.4s ease-out;
+
+        &--active {
+            transform: rotate(180deg);
+        }
+    }
+
     &__name {
         color: $black;
         font-size: 1.4rem;

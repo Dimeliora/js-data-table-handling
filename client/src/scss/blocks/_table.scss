@@ -25,13 +25,10 @@
         align-items: center;
     }
 
-    &__details {
-        --details-height: 0;
-        display: none;
+    &__details-wrapper {
+        max-height: 0;
+        overflow: hidden;
         background-color: $light;
-
-        &--visible {
-            display: block;
-        }
+        transition: max-height 0.4s ease-out;
     }
 }

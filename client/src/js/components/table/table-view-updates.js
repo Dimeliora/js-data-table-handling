@@ -1,7 +1,21 @@
 import { tableElements } from './table-dom-elements';
 
-export const userDetailsVisibilityToggler = (detailsElement) => {
-    detailsElement.classList.toggle('table__details--visible');
+export const userDetailsVisibilityToggler = (
+    tableRowDetailsButtonElm,
+    detailsElement
+) => {
+    if (detailsElement.style.maxHeight) {
+        tableRowDetailsButtonElm.classList.remove(
+            'row__details-button--active'
+        );
+        detailsElement.style.removeProperty('max-height');
+    } else {
+        tableRowDetailsButtonElm.classList.add('row__details-button--active');
+        detailsElement.style.setProperty(
+            'max-height',
+            `${detailsElement.scrollHeight}px`
+        );
+    }
 };
 
 export const userMoreShowDropdownHandler = (dropdownElm) => {
