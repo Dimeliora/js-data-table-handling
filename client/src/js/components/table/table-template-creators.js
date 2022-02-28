@@ -173,3 +173,13 @@ export const createDetailsTableRowHTML = (details) => {
         </tr>
     `;
 };
+
+export const createDetailsTableRowPlaceholderHTML = () => {
+    return `
+        <tr>
+            <td class="details__placeholder" colspan="3">
+                No records found
+            </td>
+        </tr>
+    `;
+};

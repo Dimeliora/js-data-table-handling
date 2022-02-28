@@ -3,6 +3,7 @@ import {
     createTableRowHTML,
     createDetailsTableHTML,
     createDetailsTableRowHTML,
+    createDetailsTableRowPlaceholderHTML,
 } from './table-template-creators';
 import {
     tableElements,
@@ -36,9 +37,15 @@ const renderTableRows = (tableBodyElm, users) => {
             let tableRow = createTableRowHTML(user);
             tableRow += createDetailsTableHTML(user);
 
-            const detailsTableRows = user.details
-                .map(createDetailsTableRowHTML)
-                .join(' ');
+            let detailsTableRows;
+            if (user.details.length > 0) {
+                detailsTableRows = user.details
+                    .map(createDetailsTableRowHTML)
+                    .join(' ');
+            } else {
+                detailsTableRows = createDetailsTableRowPlaceholderHTML();
+            }
+
             tableRow = tableRow.replace('{{details}}', detailsTableRows);
 
             return tableRow;

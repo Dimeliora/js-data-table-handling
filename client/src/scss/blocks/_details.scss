@@ -1,4 +1,5 @@
 .details {
+    width: 100%;
     border-collapse: collapse;
 
     &__header {
@@ -41,5 +42,13 @@
     &__activity,
     &__description {
         color: $black;
+    }
+
+    &__placeholder {
+        padding: 40px 0;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
     }
 }
