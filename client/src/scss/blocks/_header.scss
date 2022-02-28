@@ -9,7 +9,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        padding-bottom: 8px;
+
         border-bottom: 1px solid $gray-light;
     }
 
@@ -28,7 +28,7 @@
 
     &__filter-tab {
         position: relative;
-        padding: 0 4px;
+        padding: 0 4px 8px 4px;
         border: none;
         background-color: transparent;
         color: inherit;
@@ -42,7 +42,7 @@
             content: '';
             position: absolute;
             left: 50%;
-            bottom: -9px;
+            bottom: -1px;
             transform: translateX(-50%);
             height: 2px;
             width: 100%;
