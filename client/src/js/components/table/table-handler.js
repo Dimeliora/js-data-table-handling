@@ -10,33 +10,36 @@ import {
 } from './table-template-creators';
 import {
     tableElements,
-    getClickedTableRowElement,
-    getTableRowInnerElements,
+    getTableRowCheckInputs,
     getDetailsTableElement,
+    getTableRowInnerElements,
+    getClickedTableRowElement,
 } from './table-dom-elements';
 import {
-    toggleUserDetailsTable,
     showUserMoreDropdown,
     hideUserMoreDropdown,
-    hideUserMoreDropdownByOutsideClick,
+    toggleUserDetailsTable,
     deleteTableRowAndDetails,
+    hideUserMoreDropdownByOutsideClick,
 } from './table-view-updates';
 import { compose } from '../../utils/compose';
 import {
-    filterUsersByActivityStatus,
-    filterUsersByPaymentStatus,
     searchUsersByProperties,
     sortUsersListByProperty,
+    filterUsersByPaymentStatus,
+    filterUsersByActivityStatus,
 } from './users-list-handlers';
 
 const tableHandler = () => {
-    const { tableBodyElement } = tableElements;
+    const { tableBodyElement, tableCheckAllElement } = tableElements;
 
     updateTable();
 
     window.addEventListener('click', hideUserMoreDropdownByOutsideClick);
 
     tableBodyElement.addEventListener('click', tableClickHandler);
+
+    tableCheckAllElement.addEventListener('change', checkAllUsersHandler);
 
     ee.on('header/filter-changed', updateTable);
 
@@ -172,6 +175,15 @@ const deleteUserHandler = (tableRowElement) => {
     const users = usersState.getAllUsers();
     if (users.length === 0) {
         tableElements.tableBodyElm.innerHTML = createTableRowPlaceholderHTML();
+    }
+};
+
+const checkAllUsersHandler = (event) => {
+    const { tableBodyElement } = tableElements;
+    const tableRowsCheckInputs = getTableRowCheckInputs(tableBodyElement);
+
+    for (const checkInput of tableRowsCheckInputs) {
+        checkInput.checked = event.target.checked;
     }
 };
 

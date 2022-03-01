@@ -3,6 +3,9 @@ export const tableElements = {
     tableCheckAllElement: document.querySelector('[data-check-all]'),
 };
 
+export const getTableRowCheckInputs = (tableBodyElement) =>
+    tableBodyElement.querySelectorAll('[data-check]');
+
 export const getClickedTableRowElement = (event) =>
     event.target.closest('[data-user]');
 
