@@ -3,9 +3,10 @@ import usersState from '../../state/users-state';
 import handleState from '../../state/handle-state';
 import { paginationElements } from './pagination-dom-elements';
 import {
-    updatePaginationView,
     showPaginationDropdown,
     hidePaginationDropdown,
+    updatePaginationPagesView,
+    updatePaginationSelectView,
     hidePaginationDropdownByOutsideClick,
 } from './pagination-view-updates';
 
@@ -13,31 +14,33 @@ const paginationHandler = () => {
     const { paginationSelectElement, paginationSelectOptionElements } =
         paginationElements;
 
-    const users = usersState.getAllUsers();
-    const { rowsPerPage } = handleState.getHandlersValues();
-    updatePaginationView(rowsPerPage, users.length);
+    updatePaginationView();
 
     paginationSelectElement.addEventListener('click', showPaginationDropdown);
 
     document.addEventListener('click', hidePaginationDropdownByOutsideClick);
 
-    for (const paginationDropdownOption of paginationSelectOptionElements) {
-        paginationDropdownOption.addEventListener(
-            'click',
-            rowsPerPageChangeHandler
-        );
+    for (const optionElement of paginationSelectOptionElements) {
+        optionElement.addEventListener('click', rowsPerPageChangeHandler);
     }
 };
 
-const rowsPerPageChangeHandler = (event) => {
-    const rowsPerPage = event.target.dataset.paginationSelectOption;
+const updatePaginationView = () => {
+    const users = usersState.getAllUsers();
+    const { rowsPerPage, currentPage } = handleState.getHandlersValues();
+
+    updatePaginationSelectView(rowsPerPage);
+    updatePaginationPagesView(rowsPerPage, currentPage, users.length);
+};
+
+const rowsPerPageChangeHandler = ({ target }) => {
+    const rowsPerPage = Number(target.dataset.paginationSelectOption);
 
     handleState.setRowsPerPage(rowsPerPage);
-
-    const users = usersState.getAllUsers();
+    handleState.setCurrentPage(1);
 
     hidePaginationDropdown();
-    updatePaginationView(rowsPerPage, users.length);
+    updatePaginationView();
 
     ee.emit('pagination/rows-per-page-changed');
 };

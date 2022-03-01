@@ -43,10 +43,34 @@ export const hidePaginationDropdown = () => {
     paginationDropdownElement.classList.remove('pagination__dropdown--visible');
 };
 
-export const updatePaginationView = (rowsCount, itemsCount, currentPage) => {
-    const { paginationSelectValueElement, paginationTotalElement } =
+export const updatePaginationSelectView = (rowsCount) => {
+    const { paginationSelectValueElement, paginationSelectOptionElements } =
         paginationElements;
 
     paginationSelectValueElement.textContent = rowsCount;
-    paginationTotalElement.textContent = itemsCount;
+
+    for (const optionElement of paginationSelectOptionElements) {
+        if (optionElement.dataset.paginationSelectOption == rowsCount) {
+            optionElement.classList.add('pagination__dropdown-item--active');
+        } else {
+            optionElement.classList.remove('pagination__dropdown-item--active');
+        }
+    }
+};
+
+export const updatePaginationPagesView = (
+    rowsCount,
+    currentPage,
+    totalItems
+) => {
+    const { paginationTotalElement, paginationCurrentElement } =
+        paginationElements;
+
+    const from = (currentPage - 1) * rowsCount + 1;
+    let to = (currentPage - 1) * rowsCount + rowsCount;
+    to = Math.min(to, totalItems);
+
+    paginationCurrentElement.textContent = `${from}-${to}`;
+
+    paginationTotalElement.textContent = totalItems;
 };

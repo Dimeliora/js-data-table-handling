@@ -49,10 +49,3 @@ export const hideUserMoreDropdownByOutsideClick = (event) => {
         hideUserMoreDropdown(visibleDropdown);
     }
 };
-
-export const deleteTableRowAndDetails = (tableRowElement) => {
-    const detailsRowElement = tableRowElement.nextElementSibling;
-
-    detailsRowElement.remove();
-    tableRowElement.remove();
-};

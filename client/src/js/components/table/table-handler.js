@@ -19,7 +19,6 @@ import {
     showUserMoreDropdown,
     hideUserMoreDropdown,
     toggleUserDetailsTable,
-    deleteTableRowAndDetails,
     hideUserMoreDropdownByOutsideClick,
 } from './table-view-updates';
 import { compose } from '../../utils/compose';
@@ -180,7 +179,7 @@ const deleteUserHandler = (tableRowElement) => {
 
     usersState.deleteUser(userId);
 
-    deleteTableRowAndDetails(tableRowElement);
+    updateTable();
 
     const users = usersState.getAllUsers();
     if (users.length === 0) {
