@@ -1,4 +1,4 @@
-const monthShortNames = [
+const MONTHS_SHORT_NAMES = [
     'JAN',
     'FEB',
     'MAR',
@@ -20,7 +20,7 @@ export const getFormattedDateString = (date) => {
         .split('.')
         .map((datePart, index) => {
             if (index === 1) {
-                return monthShortNames[Number(datePart) - 1];
+                return MONTHS_SHORT_NAMES[Number(datePart) - 1];
             }
 
             return datePart;

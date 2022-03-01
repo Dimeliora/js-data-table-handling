@@ -24,7 +24,7 @@ export const showUserMoreDropdown = (dropdownElement) => {
     const visibleDropdown =
         tableElements.tableBodyElement.querySelector('.more--visible');
     if (visibleDropdown) {
-        userMoreHideDropdownHandler(visibleDropdown);
+        hideUserMoreDropdown(visibleDropdown);
     }
 
     dropdownElement.classList.add('more--visible');
@@ -46,7 +46,7 @@ export const hideUserMoreDropdownByOutsideClick = (event) => {
         !event.target.closest('[data-more-button]') &&
         !event.composedPath().includes(visibleDropdown)
     ) {
-        userMoreHideDropdownHandler(visibleDropdown);
+        hideUserMoreDropdown(visibleDropdown);
     }
 };
 
