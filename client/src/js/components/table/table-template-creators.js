@@ -15,7 +15,8 @@ const paymentStatusTextMap = {
 export const createTableRowHTML = (user) => {
     const {
         id,
-        name,
+        firstName,
+        lastName,
         email,
         lastLogin,
         paymentDate,
@@ -42,7 +43,9 @@ export const createTableRowHTML = (user) => {
                     data-check
                 />
                 <label for="${id}" class="checkbox__label">
-                    <span class="visually-hidden">Check user ${name}</span>
+                    <span class="visually-hidden">
+                        Check user ${firstName} ${lastName}
+                    </span>
                 </label>
             </td>
 
@@ -60,7 +63,7 @@ export const createTableRowHTML = (user) => {
             </td>
 
             <td class="row__user">
-                <div class="row__name">${name}</div>
+                <div class="row__name">${firstName} ${lastName}</div>
                 <div class="row__email">${email}</div>
             </td>
 

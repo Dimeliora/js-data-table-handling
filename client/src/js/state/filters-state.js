@@ -2,12 +2,14 @@ class FiltersState {
     paymentFilter = 'all';
     statusFilter = 'all';
     searchValue = '';
+    sortBy = 'default';
 
     getFilters() {
         return {
             paymentFilter: this.paymentFilter,
             statusFilter: this.statusFilter,
             searchValue: this.searchValue,
+            sortBy: this.sortBy,
         };
     }
 
@@ -21,6 +23,10 @@ class FiltersState {
 
     setSearchValue(value) {
         this.searchValue = value.toLowerCase();
+    }
+
+    setSortBy(value) {
+        this.sortBy = value;
     }
 }
 

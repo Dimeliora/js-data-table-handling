@@ -1,7 +1,8 @@
 const users = [
     {
         id: '9b119493-97bf-4449-880f-d25ae81dfec1',
-        name: 'Justin Septimus',
+        firstName: 'Justin',
+        lastName: 'Septimus',
         email: 'justin.septimus@email.com',
         lastLogin: '2020-04-14',
         paymentDate: '2020-05-02',
@@ -35,7 +36,8 @@ const users = [
     },
     {
         id: '0cd4e223-5009-40ee-b348-601b0882df53',
-        name: 'Anika Rhiel Madsen',
+        firstName: 'Anika',
+        lastName: 'Rhiel Madsen',
         email: 'anika.rhiel@example.com',
         lastLogin: '2020-06-23',
         paymentDate: '2020-03-11',
@@ -76,7 +78,8 @@ const users = [
     },
     {
         id: '261017a2-5313-4d09-b36a-dba4c65b67d3',
-        name: 'Miracle Vaccaro',
+        firstName: 'Miracle',
+        lastName: 'Vaccaro',
         email: 'miracle.vaccaro@ya.ru',
         lastLogin: '2021-01-19',
         paymentDate: '2021-08-08',
@@ -117,7 +120,8 @@ const users = [
     },
     {
         id: '5ea2a9a6-354b-43fa-8a0b-ee70f21c724a',
-        name: 'Gaspard Rousseau',
+        firstName: 'Gaspard',
+        lastName: 'Rousseau',
         email: 'gaspard.rousseau@example.com',
         lastLogin: '2021-07-25',
         paymentDate: '2021-09-30',
@@ -144,7 +148,8 @@ const users = [
     },
     {
         id: '91283914-1d7f-4f8e-845d-445a0e0d305d',
-        name: 'Lou Blanc',
+        firstName: 'Lou',
+        lastName: 'Blanc',
         email: 'lou.blanc@example.com',
         lastLogin: '2021-03-19',
         paymentDate: '2021-02-20',
@@ -164,7 +169,8 @@ const users = [
     },
     {
         id: '6066a08a-5b84-44d9-8f1e-ca1365ed688b',
-        name: 'Flora Bernard',
+        firstName: 'Flora',
+        lastName: 'Bernard',
         email: 'flora.bernard@example.com',
         lastLogin: '2021-05-02',
         paymentDate: '2021-06-22',
@@ -176,7 +182,8 @@ const users = [
     },
     {
         id: '4728b83f-6764-42c8-9191-b67e7eb66724',
-        name: 'Dominic Jones',
+        firstName: 'Dominic',
+        lastName: 'Jones',
         email: 'dominic.jones@example.com',
         lastLogin: '2021-01-04',
         paymentDate: '2021-02-09',
@@ -188,7 +195,8 @@ const users = [
     },
     {
         id: 'bbf0bf5e-0eb6-48a7-9a89-3ea80d56221d',
-        name: 'Michèle Michel',
+        firstName: 'Michèle',
+        lastName: 'Michel',
         email: 'michele.michel@example.com',
         lastLogin: '2020-11-14',
         paymentDate: '2020-12-01',
@@ -222,7 +230,8 @@ const users = [
     },
     {
         id: '216842f7-74d1-4f2e-aa3b-bbc8b8aa4a09',
-        name: 'Annabelle Bergeron',
+        firstName: 'Annabelle',
+        lastName: 'Bergeron',
         email: 'annabelle.bergeron@example.com',
         lastLogin: '2021-02-06',
         paymentDate: '2021-04-11',
@@ -249,7 +258,8 @@ const users = [
     },
     {
         id: '981971e1-0955-4f76-8022-ce6c9f52a41f',
-        name: 'Lucie Lemaire',
+        firstName: 'Lucie',
+        lastName: 'Lemaire',
         email: 'lucie.lemaire@example.com',
         lastLogin: '2021-09-04',
         paymentDate: '2021-11-22',

@@ -36,6 +36,8 @@ const tableHandler = () => {
     ee.on('panel/filter-changed', updateTable);
 
     ee.on('panel/search-value-changed', updateTable);
+
+    ee.on('panel/sort-by-changed', updateTable);
 };
 
 const updateTable = () => {
@@ -48,9 +50,9 @@ const updateTable = () => {
 };
 
 const handleUsersList = (users, filters) => {
-    const { paymentFilter, statusFilter, searchValue } = filters;
+    const { paymentFilter, statusFilter, searchValue, sortBy } = filters;
 
-    let handledUsers = users;
+    let handledUsers = [...users];
 
     if (paymentFilter !== 'all') {
         handledUsers = handledUsers.filter(
@@ -67,8 +69,15 @@ const handleUsersList = (users, filters) => {
     if (searchValue.length > 0) {
         handledUsers = handledUsers.filter(
             (user) =>
-                user.name.toLowerCase().includes(searchValue) ||
+                user.firstName.toLowerCase().includes(searchValue) ||
+                user.lastName.toLowerCase().includes(searchValue) ||
                 user.email.toLowerCase().includes(searchValue)
+        );
+    }
+
+    if (sortBy !== 'default') {
+        handledUsers = handledUsers.sort((a, b) =>
+            a[sortBy] > b[sortBy] ? 1 : -1
         );
     }
 

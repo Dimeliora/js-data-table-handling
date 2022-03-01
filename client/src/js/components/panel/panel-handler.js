@@ -14,6 +14,7 @@ const panelHandler = () => {
         panelFiltersElement,
         panelDropdownCloseElement,
         panelFilterInputElements,
+        panelSortInputElements,
     } = panelElements;
 
     panelFiltersElement.addEventListener('click', toggleFiltersDropdown);
@@ -30,6 +31,10 @@ const panelHandler = () => {
     for (const filterInput of panelFilterInputElements) {
         filterInput.addEventListener('change', panelFilterChangeHandler);
     }
+
+    for (const sortByInput of panelSortInputElements) {
+        sortByInput.addEventListener('change', panelSortByChangeHandler);
+    }
 };
 
 const panelSearchChangeHandler = (event) => {
@@ -44,6 +49,12 @@ const panelFilterChangeHandler = (event) => {
     filtersState.setStatusFilter(event.target.value);
 
     ee.emit('panel/filter-changed');
+};
+
+const panelSortByChangeHandler = (event) => {
+    filtersState.setSortBy(event.target.value);
+
+    ee.emit('panel/sort-by-changed');
 };
 
 panelHandler();

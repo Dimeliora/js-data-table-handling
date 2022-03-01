@@ -5,5 +5,6 @@ export const panelElements = {
         '[data-panel-dropdown-close]'
     ),
     panelFilterInputElements: document.querySelectorAll('[name="filter-by"]'),
+    panelSortInputElements: document.querySelectorAll('[name="sort-by"]'),
     panelSearchElement: document.querySelector('[data-panel-search]'),
 };
