@@ -1,9 +1,9 @@
-import { headerElms } from './header-dom-elements';
+import { headerElements } from './header-dom-elements';
 
 export const updateHeaderFilterActiveClass = (filter) => {
-    const { headerFilterElms } = headerElms;
+    const { headerFilterElements } = headerElements;
 
-    for (const filterElement of headerFilterElms) {
+    for (const filterElement of headerFilterElements) {
         if (filterElement.dataset.headerFilter === filter) {
             filterElement.classList.add('header__filter-tab--active');
         } else {

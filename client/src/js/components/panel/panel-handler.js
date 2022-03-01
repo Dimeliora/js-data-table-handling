@@ -1,33 +1,33 @@
 import ee from '../../utils/event-emitter';
 import filtersState from '../../state/filters-state';
-import { panelElms } from './panel-dom-elements';
+import { panelElements } from './panel-dom-elements';
 import {
     toggleFiltersDropdown,
     hideFiltersDropdown,
-    filtersDropdownOutsideClickHandler,
+    hideFiltersDropdownByOutsideClick,
 } from './panel-view-updates';
 import { debounce } from '../../utils/debounce';
 
 const panelHandler = () => {
     const {
-        panelSearchElm,
-        panelFiltersElm,
-        panelDropdownCloseElm,
-        panelFilterInputElms,
-    } = panelElms;
+        panelSearchElement,
+        panelFiltersElement,
+        panelDropdownCloseElement,
+        panelFilterInputElements,
+    } = panelElements;
 
-    panelFiltersElm.addEventListener('click', toggleFiltersDropdown);
+    panelFiltersElement.addEventListener('click', toggleFiltersDropdown);
 
-    panelDropdownCloseElm.addEventListener('click', hideFiltersDropdown);
+    panelDropdownCloseElement.addEventListener('click', hideFiltersDropdown);
 
-    document.addEventListener('click', filtersDropdownOutsideClickHandler);
+    document.addEventListener('click', hideFiltersDropdownByOutsideClick);
 
-    panelSearchElm.addEventListener(
+    panelSearchElement.addEventListener(
         'input',
         debounce(panelSearchChangeHandler, 700)
     );
 
-    for (const filterInput of panelFilterInputElms) {
+    for (const filterInput of panelFilterInputElements) {
         filterInput.addEventListener('change', panelFilterChangeHandler);
     }
 };

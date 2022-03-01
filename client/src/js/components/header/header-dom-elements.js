@@ -1,3 +1,3 @@
-export const headerElms = {
-    headerFilterElms: document.querySelectorAll('[data-header-filter]'),
+export const headerElements = {
+    headerFilterElements: document.querySelectorAll('[data-header-filter]'),
 };

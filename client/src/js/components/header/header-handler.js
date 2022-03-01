@@ -1,12 +1,12 @@
 import ee from '../../utils/event-emitter';
 import filtersState from '../../state/filters-state';
-import { headerElms } from './header-dom-elements';
+import { headerElements } from './header-dom-elements';
 import { updateHeaderFilterActiveClass } from './header-view-updates';
 
 const headerHandler = () => {
-    const { headerFilterElms } = headerElms;
+    const { headerFilterElements } = headerElements;
 
-    for (const filterElm of headerFilterElms) {
+    for (const filterElm of headerFilterElements) {
         filterElm.addEventListener('click', headerFilterClickHandler);
     }
 };

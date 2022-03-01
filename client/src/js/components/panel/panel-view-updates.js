@@ -1,25 +1,25 @@
-import { panelElms } from './panel-dom-elements';
+import { panelElements } from './panel-dom-elements';
 
 export const toggleFiltersDropdown = () => {
-    const { panelFiltersElm, panelDropdownElm } = panelElms;
+    const { panelFiltersElement, panelDropdownElement } = panelElements;
 
-    panelFiltersElm.classList.toggle('panel__filters-button--active');
-    panelDropdownElm.classList.toggle('filters--visible');
+    panelFiltersElement.classList.toggle('panel__filters-button--active');
+    panelDropdownElement.classList.toggle('filters--visible');
 };
 
 export const hideFiltersDropdown = () => {
-    const { panelFiltersElm, panelDropdownElm } = panelElms;
+    const { panelFiltersElement, panelDropdownElement } = panelElements;
 
-    panelFiltersElm.classList.remove('panel__filters-button--active');
-    panelDropdownElm.classList.remove('filters--visible');
+    panelFiltersElement.classList.remove('panel__filters-button--active');
+    panelDropdownElement.classList.remove('filters--visible');
 };
 
-export const filtersDropdownOutsideClickHandler = (event) => {
-    const { panelFiltersElm, panelDropdownElm } = panelElms;
+export const hideFiltersDropdownByOutsideClick = (event) => {
+    const { panelFiltersElement, panelDropdownElement } = panelElements;
 
     if (
-        !event.composedPath().includes(panelFiltersElm) &&
-        !event.composedPath().includes(panelDropdownElm)
+        !event.composedPath().includes(panelFiltersElement) &&
+        !event.composedPath().includes(panelDropdownElement)
     ) {
         hideFiltersDropdown();
     }

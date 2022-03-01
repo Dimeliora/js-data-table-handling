@@ -15,22 +15,21 @@ import {
     getDetailsTableElement,
 } from './table-dom-elements';
 import {
-    userDetailsVisibilityToggler,
-    userMoreShowDropdownHandler,
-    userMoreHideDropdownHandler,
-    userMoreDropdownOutsideClickHandler,
-    updateTableRowView,
+    toggleUserDetailsTable,
+    showUserMoreDropdown,
+    hideUserMoreDropdown,
+    hideUserMoreDropdownByOutsideClick,
     deleteTableRowAndDetails,
 } from './table-view-updates';
 
 const tableHandler = () => {
-    const { tableBodyElm } = tableElements;
+    const { tableBodyElement } = tableElements;
 
     updateTable();
 
-    window.addEventListener('click', userMoreDropdownOutsideClickHandler);
+    window.addEventListener('click', hideUserMoreDropdownByOutsideClick);
 
-    tableBodyElm.addEventListener('click', tableClickHandler);
+    tableBodyElement.addEventListener('click', tableClickHandler);
 
     ee.on('header/filter-changed', updateTable);
 
@@ -54,13 +53,13 @@ const handleUsersList = (users, filters) => {
     let handledUsers = users;
 
     if (paymentFilter !== 'all') {
-        handledUsers = users.filter(
+        handledUsers = handledUsers.filter(
             (user) => user.paymentStatus === paymentFilter
         );
     }
 
     if (statusFilter !== 'all') {
-        handledUsers = users.filter(
+        handledUsers = handledUsers.filter(
             (user) => user.activityStatus === statusFilter
         );
     }
@@ -77,7 +76,7 @@ const handleUsersList = (users, filters) => {
 };
 
 const renderTableRows = (users) => {
-    const { tableBodyElm } = tableElements;
+    const { tableBodyElement } = tableElements;
 
     let tableRowsMarkup;
     if (users.length > 0) {
@@ -86,7 +85,7 @@ const renderTableRows = (users) => {
         tableRowsMarkup = createTableRowPlaceholderHTML();
     }
 
-    tableBodyElm.innerHTML = tableRowsMarkup;
+    tableBodyElement.innerHTML = tableRowsMarkup;
 };
 
 const createDetailsTableMarkup = (user) => {
@@ -114,39 +113,39 @@ const tableClickHandler = (event) => {
     }
 
     const {
-        tableRowDetailsButtonElm,
-        tableRowMoreElm,
-        tableRowMoreDropdownElm,
-        tableRowMoreCloseElm,
-        tableRowActivateElm,
-        tableRowDeleteElm,
+        tableRowDetailsButtonElement,
+        tableRowMoreElement,
+        tableRowMoreDropdownElement,
+        tableRowMoreCloseElement,
+        tableRowActivateElement,
+        tableRowDeleteElement,
     } = getTableRowInnerElements(tableRow);
 
-    if (isElementClicked(event, tableRowDetailsButtonElm)) {
+    if (isElementClicked(event, tableRowDetailsButtonElement)) {
         const tableRowDetailsElm = getDetailsTableElement(tableRow);
-        userDetailsVisibilityToggler(
-            tableRowDetailsButtonElm,
+        toggleUserDetailsTable(
+            tableRowDetailsButtonElement,
             tableRowDetailsElm
         );
         return;
     }
 
-    if (isElementClicked(event, tableRowMoreElm)) {
-        userMoreShowDropdownHandler(tableRowMoreDropdownElm);
+    if (isElementClicked(event, tableRowMoreElement)) {
+        showUserMoreDropdown(tableRowMoreDropdownElement);
         return;
     }
 
-    if (isElementClicked(event, tableRowMoreCloseElm)) {
-        userMoreHideDropdownHandler(tableRowMoreDropdownElm);
+    if (isElementClicked(event, tableRowMoreCloseElement)) {
+        hideUserMoreDropdown(tableRowMoreDropdownElement);
         return;
     }
 
-    if (isElementClicked(event, tableRowActivateElm)) {
+    if (isElementClicked(event, tableRowActivateElement)) {
         userStatusChangeHandler(tableRow);
         return;
     }
 
-    if (isElementClicked(event, tableRowDeleteElm)) {
+    if (isElementClicked(event, tableRowDeleteElement)) {
         deleteUserHandler(tableRow);
         return;
     }
@@ -160,8 +159,7 @@ const userStatusChangeHandler = (tableRowElement) => {
 
     usersState.updateUserStatus(userId);
 
-    const user = usersState.getUser(userId);
-    updateTableRowView(tableRowElement, user);
+    updateTable();
 };
 
 const deleteUserHandler = (tableRowElement) => {

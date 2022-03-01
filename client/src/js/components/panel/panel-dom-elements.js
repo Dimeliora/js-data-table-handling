@@ -1,9 +1,9 @@
-export const panelElms = {
-    panelFiltersElm: document.querySelector('[data-panel-filters]'),
-    panelDropdownElm: document.querySelector('[data-panel-dropdown]'),
-    panelDropdownCloseElm: document.querySelector(
+export const panelElements = {
+    panelFiltersElement: document.querySelector('[data-panel-filters]'),
+    panelDropdownElement: document.querySelector('[data-panel-dropdown]'),
+    panelDropdownCloseElement: document.querySelector(
         '[data-panel-dropdown-close]'
     ),
-    panelFilterInputElms: document.querySelectorAll('[name="filter-by"]'),
-    panelSearchElm: document.querySelector('[data-panel-search]'),
+    panelFilterInputElements: document.querySelectorAll('[name="filter-by"]'),
+    panelSearchElement: document.querySelector('[data-panel-search]'),
 };

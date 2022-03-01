@@ -1,17 +1,18 @@
 import { tableElements } from './table-dom-elements';
-import { createTableRowHTML } from './table-template-creators';
 
-export const userDetailsVisibilityToggler = (
-    tableRowDetailsButtonElm,
+export const toggleUserDetailsTable = (
+    tableRowDetailsButtonElement,
     detailsElement
 ) => {
     if (detailsElement.style.maxHeight) {
-        tableRowDetailsButtonElm.classList.remove(
+        tableRowDetailsButtonElement.classList.remove(
             'row__details-button--active'
         );
         detailsElement.style.removeProperty('max-height');
     } else {
-        tableRowDetailsButtonElm.classList.add('row__details-button--active');
+        tableRowDetailsButtonElement.classList.add(
+            'row__details-button--active'
+        );
         detailsElement.style.setProperty(
             'max-height',
             `${detailsElement.scrollHeight}px`
@@ -19,23 +20,23 @@ export const userDetailsVisibilityToggler = (
     }
 };
 
-export const userMoreShowDropdownHandler = (dropdownElm) => {
+export const showUserMoreDropdown = (dropdownElement) => {
     const visibleDropdown =
-        tableElements.tableBodyElm.querySelector('.more--visible');
+        tableElements.tableBodyElement.querySelector('.more--visible');
     if (visibleDropdown) {
         userMoreHideDropdownHandler(visibleDropdown);
     }
 
-    dropdownElm.classList.add('more--visible');
+    dropdownElement.classList.add('more--visible');
 };
 
-export const userMoreHideDropdownHandler = (dropdownElm) => {
-    dropdownElm.classList.remove('more--visible');
+export const hideUserMoreDropdown = (dropdownElement) => {
+    dropdownElement.classList.remove('more--visible');
 };
 
-export const userMoreDropdownOutsideClickHandler = (event) => {
+export const hideUserMoreDropdownByOutsideClick = (event) => {
     const visibleDropdown =
-        tableElements.tableBodyElm.querySelector('.more--visible');
+        tableElements.tableBodyElement.querySelector('.more--visible');
 
     if (!visibleDropdown) {
         return;
@@ -49,12 +50,9 @@ export const userMoreDropdownOutsideClickHandler = (event) => {
     }
 };
 
-export const updateTableRowView = (tableRowElement, user) => {
-    tableRowElement.innerHTML = createTableRowHTML(user);
-};
-
 export const deleteTableRowAndDetails = (tableRowElement) => {
-    const detailsRow = tableRowElement.nextElementSibling;
-    detailsRow.remove();
+    const detailsRowElement = tableRowElement.nextElementSibling;
+
+    detailsRowElement.remove();
     tableRowElement.remove();
 };
