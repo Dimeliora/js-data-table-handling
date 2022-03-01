@@ -13,8 +13,14 @@ class UsersState {
 
     updateUserStatus(userId) {
         const user = this.getUser(userId);
-        if (user) {
-            user.isActive = !user.isActive;
+        if (!user) {
+            return;
+        }
+
+        if (user.activityStatus === 'active') {
+            user.activityStatus = 'inactive';
+        } else {
+            user.activityStatus = 'active';
         }
     }
 

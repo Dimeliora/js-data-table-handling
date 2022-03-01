@@ -34,6 +34,8 @@ const tableHandler = () => {
 
     ee.on('header/filter-changed', updateTable);
 
+    ee.on('panel/filter-changed', updateTable);
+
     ee.on('panel/search-value-changed', updateTable);
 };
 
@@ -47,13 +49,19 @@ const updateTable = () => {
 };
 
 const handleUsersList = (users, filters) => {
-    const { paymentFilter, searchValue } = filters;
+    const { paymentFilter, statusFilter, searchValue } = filters;
 
     let handledUsers = users;
 
     if (paymentFilter !== 'all') {
         handledUsers = users.filter(
             (user) => user.paymentStatus === paymentFilter
+        );
+    }
+
+    if (statusFilter !== 'all') {
+        handledUsers = users.filter(
+            (user) => user.activityStatus === statusFilter
         );
     }
 

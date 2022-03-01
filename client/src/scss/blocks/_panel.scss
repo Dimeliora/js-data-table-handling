@@ -21,6 +21,7 @@
         cursor: pointer;
         transition: box-shadow 0.2s ease-out;
 
+        &--active,
         &:focus-visible,
         &:hover {
             box-shadow: 0 0 4px $purple;

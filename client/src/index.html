@@ -62,21 +62,25 @@
             <div class="data">
                 <div class="data__panel panel">
                     <div class="panel__filters">
-                        <button class="panel__filters-button">
+                        <button
+                            class="panel__filters-button"
+                            data-panel-filters
+                        >
                             <svg class="panel__filters-icon">
                                 <use href="/icons/icon-sprite.svg#filter" />
                             </svg>
                             Filter
                         </button>
-                        <!-- Filters / Sorters dropdown -->
+
                         <div
                             class="panel__filters-dropdown filters"
-                            style="display: none"
+                            data-panel-dropdown
                         >
                             <button
                                 class="filters__close icon-button icon-button--small"
                                 title="Close"
                                 aria-label="Close"
+                                data-panel-dropdown-close
                             >
                                 <svg class="icon-button__icon">
                                     <use href="/icons/icon-sprite.svg#close" />
@@ -190,6 +194,7 @@
                                             id="filter-by-all"
                                             name="filter-by"
                                             value="all"
+                                            checked
                                         />
                                         All
                                         <span class="radio__mark"></span>

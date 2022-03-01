@@ -22,10 +22,11 @@ export const createTableRowHTML = (user) => {
         paymentStatus,
         amount,
         currency,
-        isActive,
+        activityStatus,
     } = user;
 
-    const userActivityText = isActive ? 'Active' : 'Inactive';
+    const isActive = activityStatus === 'active';
+
     const userActivityClass = isActive ? 'label--primary' : '';
     const paymentStatusClass = paymentStatusClassMap[paymentStatus];
     const paymentStatusText = paymentStatusTextMap[paymentStatus];
@@ -65,7 +66,7 @@ export const createTableRowHTML = (user) => {
 
             <td class="row__user-status">
                 <div class="row__user-activity label ${userActivityClass}" data-user-status>
-                    <span class="label__text">${userActivityText}</span>
+                    <span class="label__text">${activityStatus}</span>
                 </div>
                 <div class="row__user-last-login">
                     Last login: ${getFormattedDateString(lastLogin)}

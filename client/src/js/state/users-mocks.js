@@ -8,7 +8,7 @@ const users = [
         paymentStatus: 'paid',
         amount: 300,
         currency: 'USD',
-        isActive: false,
+        activityStatus: 'inactive',
         details: [
             {
                 id: '4686021b-37ba-4267-a3d3-68d7a39a6690',
@@ -42,7 +42,7 @@ const users = [
         paymentStatus: 'unpaid',
         amount: 200,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [
             {
                 id: '813e313b-1776-450d-a20c-eb59c800f0d9',
@@ -83,7 +83,7 @@ const users = [
         paymentStatus: 'overdue',
         amount: 150,
         currency: 'USD',
-        isActive: false,
+        activityStatus: 'inactive',
         details: [
             {
                 id: '2eb0ead0-7afe-4cb4-a9fe-5f0ea033280a',
@@ -124,7 +124,7 @@ const users = [
         paymentStatus: 'paid',
         amount: 230,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [
             {
                 id: 'f4c2902c-15dc-42a9-a489-a153e9f82d90',
@@ -151,7 +151,7 @@ const users = [
         paymentStatus: 'paid',
         amount: 330,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [
             {
                 id: '64217d7d-5401-4da5-bd97-4cc4605fd9c5',
@@ -171,7 +171,7 @@ const users = [
         paymentStatus: 'overdue',
         amount: 130,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [],
     },
     {
@@ -183,7 +183,7 @@ const users = [
         paymentStatus: 'unpaid',
         amount: 100,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [],
     },
     {
@@ -195,7 +195,7 @@ const users = [
         paymentStatus: 'paid',
         amount: 340,
         currency: 'USD',
-        isActive: false,
+        activityStatus: 'inactive',
         details: [
             {
                 id: '72635b78-2fa9-4f6f-91bb-85b66f058a8a',
@@ -229,7 +229,7 @@ const users = [
         paymentStatus: 'overdue',
         amount: 257,
         currency: 'USD',
-        isActive: false,
+        activityStatus: 'inactive',
         details: [
             {
                 id: 'eee0ffbd-4636-462a-8781-9697932dbf34',
@@ -256,7 +256,7 @@ const users = [
         paymentStatus: 'unpaid',
         amount: 138,
         currency: 'USD',
-        isActive: true,
+        activityStatus: 'active',
         details: [],
     },
 ];
