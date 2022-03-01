@@ -2,12 +2,13 @@
     font-size: 1.2rem;
     font-weight: 500;
 
-    &__selector {
+    &__select {
+        position: relative;
         margin-right: 50px;
         cursor: pointer;
     }
 
-    &__selector-header {
+    &__select-header {
         display: flex;
         align-items: center;
         transition: color 0.2s ease-out;
@@ -16,7 +17,7 @@
         &:hover {
             color: $purple;
 
-            .pagination__selector-icon {
+            .pagination__select-icon {
                 fill: $purple;
             }
         }
@@ -26,7 +27,13 @@
         }
     }
 
-    &__selector-icon {
+    &__select-value {
+        display: inline-block;
+        min-width: 1.6rem;
+        text-align: right;
+    }
+
+    &__select-icon {
         width: 8px;
         height: 5px;
         margin-left: 10px;
@@ -35,6 +42,40 @@
     }
 
     &__dropdown {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        max-height: 0;
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        list-style-type: none;
+        opacity: 0;
+        visibility: hidden;
+
+        &--visible {
+            max-height: none;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+        }
+    }
+
+    &__dropdown-item {
+        padding: 5px;
+        text-align: right;
+        transition: background-color 0.2s ease-out;
+
+        &--active {
+            font-weight: 500;
+        }
+
+        &:hover,
+        &:focus-visible {
+            background-color: $white;
+        }
     }
 
     &__pages {

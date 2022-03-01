@@ -24,6 +24,7 @@ import {
 } from './table-view-updates';
 import { compose } from '../../utils/compose';
 import {
+    paginateUsersList,
     searchUsersByProperties,
     sortUsersListByProperty,
     filterUsersByPaymentStatus,
@@ -48,6 +49,8 @@ const tableHandler = () => {
     ee.on('panel/search-value-changed', updateTable);
 
     ee.on('panel/sort-by-changed', updateTable);
+
+    ee.on('pagination/rows-per-page-changed', updateTable);
 };
 
 const updateTable = () => {
@@ -67,10 +70,17 @@ const handleUsersList = (users, handlersValues) => {
         'paymentDate',
         'lastLogin',
     ];
-    const { paymentFilter, activityFilter, searchValue, sortBy } =
-        handlersValues;
+    const {
+        paymentFilter,
+        activityFilter,
+        searchValue,
+        sortBy,
+        rowsPerPage,
+        currentPage,
+    } = handlersValues;
 
     return compose(
+        paginateUsersList(rowsPerPage, currentPage),
         sortUsersListByProperty(sortBy),
         searchUsersByProperties(searchValue, SEARCH_PROPERTIES),
         filterUsersByPaymentStatus(paymentFilter),

@@ -3,6 +3,8 @@ class HandleState {
     activityFilter = 'all';
     searchValue = '';
     sortBy = 'default';
+    rowsPerPage = 5;
+    currentPage = 1;
 
     getHandlersValues() {
         return {
@@ -10,6 +12,8 @@ class HandleState {
             activityFilter: this.activityFilter,
             searchValue: this.searchValue,
             sortBy: this.sortBy,
+            rowsPerPage: this.rowsPerPage,
+            currentPage: this.currentPage,
         };
     }
 
@@ -27,6 +31,14 @@ class HandleState {
 
     setSortBy(value) {
         this.sortBy = value;
+    }
+
+    setRowsPerPage(value) {
+        this.rowsPerPage = value;
+    }
+
+    setCurrentPage(value) {
+        this.currentPage = value;
     }
 }
 

@@ -88,7 +88,7 @@ export const createTableRowHTML = (user) => {
             </td>
 
             <td class="row__amount">
-                <div class="row__amount-value">${amount}</div>
+                <div class="row__amount-value">$${amount}</div>
                 <div class="row__amount-currency">${currency}</div>
             </td>
 

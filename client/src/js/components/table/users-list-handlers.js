@@ -33,3 +33,9 @@ export const sortUsersListByProperty = (sortBy) => (users) => {
 
     return [...users].sort((a, b) => (a[sortBy] > b[sortBy] ? 1 : -1));
 };
+
+export const paginateUsersList = (rowsPerPage, currentPage) => (users) =>
+    users.slice(
+        (currentPage - 1) * rowsPerPage,
+        (currentPage - 1) * rowsPerPage + rowsPerPage
+    );

@@ -285,25 +285,67 @@
                 </table>
 
                 <div class="data__pagination pagination">
-                    <div class="pagination__selector">
-                        <div class="pagination__selector-header" tabindex="0">
-                            Rows per page: <span>10</span>
-                            <svg class="pagination__selector-icon">
+                    <div class="pagination__select">
+                        <div
+                            class="pagination__select-header"
+                            tabindex="0"
+                            data-pagination-select
+                        >
+                            Rows per page:
+                            <span
+                                class="pagination__select-value"
+                                data-pagination-select-value
+                                >10</span
+                            >
+                            <svg class="pagination__select-icon">
                                 <use href="/icons/icon-sprite.svg#dropdown" />
                             </svg>
                         </div>
-                        <div class="pagination__dropdown"></div>
+                        <ul
+                            class="pagination__dropdown"
+                            data-pagination-dropdown
+                        >
+                            <li
+                                class="pagination__dropdown-item"
+                                tabindex="0"
+                                data-pagination-select-option="5"
+                            >
+                                5
+                            </li>
+                            <li
+                                class="pagination__dropdown-item"
+                                tabindex="0"
+                                data-pagination-select-option="10"
+                            >
+                                10
+                            </li>
+                            <li
+                                class="pagination__dropdown-item"
+                                tabindex="0"
+                                data-pagination-select-option="20"
+                            >
+                                20
+                            </li>
+                            <li
+                                class="pagination__dropdown-item"
+                                tabindex="0"
+                                data-pagination-select-option="30"
+                            >
+                                30
+                            </li>
+                        </ul>
                     </div>
                     <div class="pagination__pages">
-                        <span>1-10</span>
+                        <span data-pagination-current>1-10</span>
                         of
-                        <span>267</span>
+                        <span data-pagination-total>267</span>
                     </div>
                     <div class="pagination__controls">
                         <button
                             class="pagination__button icon-button icon-button--small"
                             title="Previous"
                             aria-label="Previous"
+                            data-pagination-prev
                         >
                             <svg class="icon-button__icon">
                                 <use href="/icons/icon-sprite.svg#left" />
@@ -313,6 +355,7 @@
                             class="pagination__button icon-button icon-button--small"
                             title="Next"
                             aria-label="Next"
+                            data-pagination-next
                         >
                             <svg class="icon-button__icon">
                                 <use href="/icons/icon-sprite.svg#right" />
