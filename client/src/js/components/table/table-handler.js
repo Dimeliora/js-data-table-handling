@@ -1,6 +1,6 @@
 import ee from '../../utils/event-emitter';
 import usersState from '../../state/users-state';
-import filtersState from '../../state/filters-state';
+import handleState from '../../state/handle-state';
 import {
     createTableRowHTML,
     createDetailsTableHTML,
@@ -49,21 +49,23 @@ const tableHandler = () => {
 
 const updateTable = () => {
     const users = usersState.getAllUsers();
-    const filters = filtersState.getFilters();
+    const handlersValues = handleState.getHandlersValues();
 
-    const handledUsersList = handleUsersList(users, filters);
+    const handledUsersList = handleUsersList(users, handlersValues);
 
     renderTableRows(handledUsersList);
 };
 
-const handleUsersList = (users, filters) => {
+const handleUsersList = (users, handlersValues) => {
     const SEARCH_PROPERTIES = [
         'firstName',
         'lastName',
+        'email',
         'paymentDate',
         'lastLogin',
     ];
-    const { paymentFilter, activityFilter, searchValue, sortBy } = filters;
+    const { paymentFilter, activityFilter, searchValue, sortBy } =
+        handlersValues;
 
     return compose(
         sortUsersListByProperty(sortBy),

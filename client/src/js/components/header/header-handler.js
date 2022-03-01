@@ -1,5 +1,5 @@
 import ee from '../../utils/event-emitter';
-import filtersState from '../../state/filters-state';
+import handleState from '../../state/handle-state';
 import { headerElements } from './header-dom-elements';
 import { updateHeaderFilterActiveClass } from './header-view-updates';
 
@@ -14,9 +14,9 @@ const headerHandler = () => {
 const headerFilterClickHandler = ({ target }) => {
     const filterValue = target.dataset.headerFilter;
 
-    filtersState.setPaymentFilter(filterValue);
+    handleState.setPaymentFilter(filterValue);
 
-    const { paymentFilter } = filtersState.getFilters();
+    const { paymentFilter } = handleState.getHandlersValues();
     updateHeaderFilterActiveClass(paymentFilter);
 
     ee.emit('header/filter-changed');

@@ -1,5 +1,5 @@
 import ee from '../../utils/event-emitter';
-import filtersState from '../../state/filters-state';
+import handleState from '../../state/handle-state';
 import { panelElements } from './panel-dom-elements';
 import {
     toggleFiltersDropdown,
@@ -40,19 +40,19 @@ const panelHandler = () => {
 const panelSearchChangeHandler = (event) => {
     const value = event.target.value.trim();
 
-    filtersState.setSearchValue(value);
+    handleState.setSearchValue(value);
 
     ee.emit('panel/search-value-changed');
 };
 
 const panelFilterChangeHandler = (event) => {
-    filtersState.setActivityFilter(event.target.value);
+    handleState.setActivityFilter(event.target.value);
 
     ee.emit('panel/filter-changed');
 };
 
 const panelSortByChangeHandler = (event) => {
-    filtersState.setSortBy(event.target.value);
+    handleState.setSortBy(event.target.value);
 
     ee.emit('panel/sort-by-changed');
 };
