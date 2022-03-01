@@ -21,6 +21,13 @@ import {
     hideUserMoreDropdownByOutsideClick,
     deleteTableRowAndDetails,
 } from './table-view-updates';
+import { compose } from '../../utils/compose';
+import {
+    filterUsersByActivityStatus,
+    filterUsersByPaymentStatus,
+    searchUsersByProperties,
+    sortUsersListByProperty,
+} from './users-list-handlers';
 
 const tableHandler = () => {
     const { tableBodyElement } = tableElements;
@@ -50,38 +57,20 @@ const updateTable = () => {
 };
 
 const handleUsersList = (users, filters) => {
-    const { paymentFilter, statusFilter, searchValue, sortBy } = filters;
+    const SEARCH_PROPERTIES = [
+        'firstName',
+        'lastName',
+        'paymentDate',
+        'lastLogin',
+    ];
+    const { paymentFilter, activityFilter, searchValue, sortBy } = filters;
 
-    let handledUsers = [...users];
-
-    if (paymentFilter !== 'all') {
-        handledUsers = handledUsers.filter(
-            (user) => user.paymentStatus === paymentFilter
-        );
-    }
-
-    if (statusFilter !== 'all') {
-        handledUsers = handledUsers.filter(
-            (user) => user.activityStatus === statusFilter
-        );
-    }
-
-    if (searchValue.length > 0) {
-        handledUsers = handledUsers.filter(
-            (user) =>
-                user.firstName.toLowerCase().includes(searchValue) ||
-                user.lastName.toLowerCase().includes(searchValue) ||
-                user.email.toLowerCase().includes(searchValue)
-        );
-    }
-
-    if (sortBy !== 'default') {
-        handledUsers = handledUsers.sort((a, b) =>
-            a[sortBy] > b[sortBy] ? 1 : -1
-        );
-    }
-
-    return handledUsers;
+    return compose(
+        sortUsersListByProperty(sortBy),
+        searchUsersByProperties(searchValue, SEARCH_PROPERTIES),
+        filterUsersByPaymentStatus(paymentFilter),
+        filterUsersByActivityStatus(activityFilter)
+    )(users);
 };
 
 const renderTableRows = (users) => {

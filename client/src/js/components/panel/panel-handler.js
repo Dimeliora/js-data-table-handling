@@ -46,7 +46,7 @@ const panelSearchChangeHandler = (event) => {
 };
 
 const panelFilterChangeHandler = (event) => {
-    filtersState.setStatusFilter(event.target.value);
+    filtersState.setActivityFilter(event.target.value);
 
     ee.emit('panel/filter-changed');
 };

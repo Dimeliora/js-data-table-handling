@@ -1,13 +1,13 @@
 class FiltersState {
     paymentFilter = 'all';
-    statusFilter = 'all';
+    activityFilter = 'all';
     searchValue = '';
     sortBy = 'default';
 
     getFilters() {
         return {
             paymentFilter: this.paymentFilter,
-            statusFilter: this.statusFilter,
+            activityFilter: this.activityFilter,
             searchValue: this.searchValue,
             sortBy: this.sortBy,
         };
@@ -17,8 +17,8 @@ class FiltersState {
         this.paymentFilter = value;
     }
 
-    setStatusFilter(value) {
-        this.statusFilter = value;
+    setActivityFilter(value) {
+        this.activityFilter = value;
     }
 
     setSearchValue(value) {
