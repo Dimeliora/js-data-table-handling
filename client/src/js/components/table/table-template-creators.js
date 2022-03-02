@@ -160,6 +160,9 @@ export const createDetailsTableHTML = ({ id }) => {
                                         <svg class="details__info-icon">
                                             <use href="/icons/icon-sprite.svg#info" />
                                         </svg>
+                                        <div class="details__tooltip">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat eget.
+                                        </div>
                                     </div>
                                 </th>
                             </tr>
