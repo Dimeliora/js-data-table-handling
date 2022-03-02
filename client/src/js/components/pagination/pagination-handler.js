@@ -97,7 +97,12 @@ const getPaginationPageChangeHandler = (step) => () => {
 const updatePaginationAfterFiltering = (usersCount) => {
     const { rowsPerPage, currentPage } = handleState.getHandlersValues();
 
-    updatePaginationView(usersCount, rowsPerPage, currentPage);
+    const rowsLeftOnPage = usersCount - (currentPage - 1) * rowsPerPage;
+    if (rowsLeftOnPage === 0 && currentPage > 1) {
+        getPaginationPageChangeHandler(-1)();
+    } else {
+        updatePaginationView(usersCount, rowsPerPage, currentPage);
+    }
 };
 
 paginationHandler();

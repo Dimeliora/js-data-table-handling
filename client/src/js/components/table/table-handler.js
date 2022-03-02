@@ -182,11 +182,6 @@ const deleteUserHandler = (tableRowElement) => {
     usersState.deleteUser(userId);
 
     updateTable();
-
-    const users = usersState.getAllUsers();
-    if (users.length === 0) {
-        tableElements.tableBodyElm.innerHTML = createTableRowPlaceholderHTML();
-    }
 };
 
 const checkAllUsersHandler = (event) => {
