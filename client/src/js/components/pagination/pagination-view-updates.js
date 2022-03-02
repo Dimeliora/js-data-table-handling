@@ -70,7 +70,14 @@ export const updatePaginationPagesView = (
     let to = (currentPage - 1) * rowsCount + rowsCount;
     to = Math.min(to, totalItems);
 
-    paginationCurrentElement.textContent = `${from}-${to}`;
+    let currentElementText = `${from}-${to}`;
+    if (from === to) {
+        currentElementText = `${from}`;
+    } else if (to === 0) {
+        currentElementText = `${to}`;
+    }
+
+    paginationCurrentElement.textContent = currentElementText;
 
     paginationTotalElement.textContent = totalItems;
 };
@@ -78,6 +85,6 @@ export const updatePaginationPagesView = (
 export const handlePaginationButtonsDisabledState = (page, min, max) => {
     const { paginationPrevElement, paginationNextElement } = paginationElements;
 
-    paginationPrevElement.disabled = page === min;
-    paginationNextElement.disabled = page === max;
+    paginationPrevElement.disabled = page <= min;
+    paginationNextElement.disabled = page >= max;
 };

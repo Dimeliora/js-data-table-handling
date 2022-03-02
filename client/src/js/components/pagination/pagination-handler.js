@@ -12,6 +12,9 @@ import {
 } from './pagination-view-updates';
 
 const paginationHandler = () => {
+    const users = usersState.getAllUsers();
+    const { rowsPerPage, currentPage } = handleState.getHandlersValues();
+
     const {
         paginationSelectElement,
         paginationSelectOptionElements,
@@ -19,7 +22,7 @@ const paginationHandler = () => {
         paginationNextElement,
     } = paginationElements;
 
-    updatePaginationView();
+    updatePaginationView(users.length, rowsPerPage, currentPage);
 
     paginationSelectElement.addEventListener('click', showPaginationDropdown);
 
@@ -38,17 +41,16 @@ const paginationHandler = () => {
         'click',
         getPaginationPageChangeHandler(1)
     );
+
+    ee.on('table/users-list-handled', updatePaginationAfterFiltering);
 };
 
-const updatePaginationView = () => {
-    const users = usersState.getAllUsers();
-    const { rowsPerPage, currentPage } = handleState.getHandlersValues();
-
+const updatePaginationView = (usersCount, rowsPerPage, currentPage) => {
     const minPageNumber = 1;
-    const maxPageNumber = Math.ceil(users.length / rowsPerPage);
+    const maxPageNumber = Math.ceil(usersCount / rowsPerPage);
 
     updatePaginationSelectView(rowsPerPage);
-    updatePaginationPagesView(rowsPerPage, currentPage, users.length);
+    updatePaginationPagesView(rowsPerPage, currentPage, usersCount);
     handlePaginationButtonsDisabledState(
         currentPage,
         minPageNumber,
@@ -57,13 +59,14 @@ const updatePaginationView = () => {
 };
 
 const rowsPerPageChangeHandler = ({ target }) => {
+    const users = usersState.getAllUsers();
     const rowsPerPage = Number(target.dataset.paginationSelectOption);
 
     handleState.setRowsPerPage(rowsPerPage);
     handleState.setCurrentPage(1);
 
     hidePaginationDropdown();
-    updatePaginationView();
+    updatePaginationView(users.length, rowsPerPage, 1);
 
     ee.emit('pagination/rows-per-page-changed');
 };
@@ -89,6 +92,12 @@ const getPaginationPageChangeHandler = (step) => () => {
     );
 
     ee.emit('pagination/current-page-changed');
+};
+
+const updatePaginationAfterFiltering = (usersCount) => {
+    const { rowsPerPage, currentPage } = handleState.getHandlersValues();
+
+    updatePaginationView(usersCount, rowsPerPage, currentPage);
 };
 
 paginationHandler();

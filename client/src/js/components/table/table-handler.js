@@ -23,7 +23,7 @@ import {
 } from './table-view-updates';
 import { compose } from '../../utils/compose';
 import {
-    paginateUsersList,
+    sliceUsersList,
     searchUsersByProperties,
     sortUsersListByProperty,
     filterUsersByPaymentStatus,
@@ -59,8 +59,15 @@ const updateTable = () => {
     const handlersValues = handleState.getHandlersValues();
 
     const handledUsersList = handleUsersList(users, handlersValues);
+    const usersListSlice = sliceUsersList(
+        handledUsersList,
+        handlersValues.rowsPerPage,
+        handlersValues.currentPage
+    );
 
-    renderTableRows(handledUsersList);
+    renderTableRows(usersListSlice);
+
+    ee.emit('table/users-list-handled', handledUsersList.length);
 };
 
 const handleUsersList = (users, handlersValues) => {
@@ -71,17 +78,10 @@ const handleUsersList = (users, handlersValues) => {
         'paymentDate',
         'lastLogin',
     ];
-    const {
-        paymentFilter,
-        activityFilter,
-        searchValue,
-        sortBy,
-        rowsPerPage,
-        currentPage,
-    } = handlersValues;
+    const { paymentFilter, activityFilter, searchValue, sortBy } =
+        handlersValues;
 
     return compose(
-        paginateUsersList(rowsPerPage, currentPage),
         sortUsersListByProperty(sortBy),
         searchUsersByProperties(searchValue, SEARCH_PROPERTIES),
         filterUsersByPaymentStatus(paymentFilter),
