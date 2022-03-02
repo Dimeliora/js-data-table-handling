@@ -1,14 +1,28 @@
 import ee from '../../utils/event-emitter';
+import usersState from '../../state/users-state';
 import handleState from '../../state/handle-state';
 import { headerElements } from './header-dom-elements';
-import { updateHeaderFilterActiveClass } from './header-view-updates';
+import {
+    updateHeaderFilterActiveClass,
+    updatePaidAmountView,
+} from './header-view-updates';
 
 const headerHandler = () => {
     const { headerFilterElements } = headerElements;
 
+    updatePaidAmount();
+
     for (const filterElm of headerFilterElements) {
         filterElm.addEventListener('click', headerFilterClickHandler);
     }
+
+    ee.on('table/users-list-handled', updatePaidAmount);
+};
+
+const updatePaidAmount = () => {
+    const { paidAmount } = usersState;
+
+    updatePaidAmountView(paidAmount);
 };
 
 const headerFilterClickHandler = ({ target }) => {

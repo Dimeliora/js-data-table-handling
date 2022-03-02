@@ -11,3 +11,7 @@ export const updateHeaderFilterActiveClass = (filter) => {
         }
     }
 };
+
+export const updatePaidAmountView = (amount) => {
+    headerElements.headerAmountElement.textContent = `$${amount}`;
+};

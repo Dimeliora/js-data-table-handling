@@ -3,6 +3,16 @@ import users from './users-mocks';
 class UsersState {
     users = users;
 
+    get paidAmount() {
+        return this.users.reduce((total, user) => {
+            if (user.paymentStatus === 'paid') {
+                return total + user.amount;
+            }
+
+            return total;
+        }, 0);
+    }
+
     getAllUsers() {
         return this.users;
     }
