@@ -80,6 +80,7 @@
     }
 
     &__pages {
+        min-width: 80px;
         margin-right: 50px;
     }
 
@@ -91,6 +92,11 @@
     &__button {
         & + .pagination__button {
             margin-left: 50px;
+        }
+
+        &:disabled {
+            opacity: 0.35;
+            pointer-events: none;
         }
     }
 }

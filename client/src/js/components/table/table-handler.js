@@ -50,6 +50,8 @@ const tableHandler = () => {
     ee.on('panel/sort-by-changed', updateTable);
 
     ee.on('pagination/rows-per-page-changed', updateTable);
+
+    ee.on('pagination/current-page-changed', updateTable);
 };
 
 const updateTable = () => {

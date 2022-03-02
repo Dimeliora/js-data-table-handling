@@ -74,3 +74,10 @@ export const updatePaginationPagesView = (
 
     paginationTotalElement.textContent = totalItems;
 };
+
+export const handlePaginationButtonsDisabledState = (page, min, max) => {
+    const { paginationPrevElement, paginationNextElement } = paginationElements;
+
+    paginationPrevElement.disabled = page === min;
+    paginationNextElement.disabled = page === max;
+};
