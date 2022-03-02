@@ -41,17 +41,23 @@ const tableHandler = () => {
 
     tableCheckAllElement.addEventListener('change', checkAllUsersHandler);
 
-    ee.on('header/filter-changed', updateTable);
+    ee.on('header/filter-changed', setFirstPageAndUpdateTable);
 
-    ee.on('panel/filter-changed', updateTable);
+    ee.on('panel/filter-changed', setFirstPageAndUpdateTable);
 
-    ee.on('panel/search-value-changed', updateTable);
+    ee.on('panel/search-value-changed', setFirstPageAndUpdateTable);
 
     ee.on('panel/sort-by-changed', updateTable);
 
     ee.on('pagination/rows-per-page-changed', updateTable);
 
     ee.on('pagination/current-page-changed', updateTable);
+};
+
+const setFirstPageAndUpdateTable = () => {
+    ee.emit('table/filters-applying');
+
+    updateTable();
 };
 
 const updateTable = () => {

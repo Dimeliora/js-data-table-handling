@@ -269,6 +269,139 @@ const users = [
         activityStatus: 'active',
         details: [],
     },
+    {
+        id: '20641ed4-a4c9-4850-9d92-3d932023af31',
+        firstName: 'Charles',
+        lastName: 'Andre',
+        email: 'charles.andre@example.com',
+        lastLogin: '2021-07-25',
+        paymentDate: '2021-09-13',
+        paymentStatus: 'unpaid',
+        amount: 237,
+        currency: 'USD',
+        activityStatus: 'inactive',
+        details: [
+            {
+                id: 'eee0ffbd-4636-462a-8211-9697932dbf34',
+                date: '2021-01-21',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+            {
+                id: 'b9687543-1434-4725-gf6c-9145c555000c',
+                date: '2021-04-30',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+        ],
+    },
+    {
+        id: 'c30a6622-3375-47f1-ae36-0d4f61ee0b91',
+        firstName: 'Ronin',
+        lastName: 'Ensink',
+        email: 'ronin.ensink@example.com',
+        lastLogin: '2020-11-14',
+        paymentDate: '2020-12-09',
+        paymentStatus: 'overdue',
+        amount: 435,
+        currency: 'USD',
+        activityStatus: 'inactive',
+        details: [
+            {
+                id: 'eefdffbd-4636-462a-8211-9697932dbf34',
+                date: '2020-12-06',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+        ],
+    },
+    {
+        id: '121203c1-f16b-4057-a67d-0ccb2d86fa1f',
+        firstName: 'Andrea',
+        lastName: 'Crespo',
+        email: 'andrea.crespo@example.com',
+        lastLogin: '2020-10-26',
+        paymentDate: '2020-11-03',
+        paymentStatus: 'paid',
+        amount: 500,
+        currency: 'USD',
+        activityStatus: 'active',
+        details: [
+            {
+                id: 'eee0ffbd-4568-462a-8211-9697932dbf34',
+                date: '2020-10-28',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+            {
+                id: 'eee0ffbd-4636-32fd-8211-9697932dbf34',
+                date: '2020-11-02',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+            {
+                id: 'eee0ffbd-4636-462a-543g-9697932dbf34',
+                date: '2020-11-04',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+        ],
+    },
+    {
+        id: 'c30a6622-3375-47f1-ae36-0d4f6vcxe0b91',
+        firstName: 'Timeo',
+        lastName: 'Martin',
+        email: 'timeo.martin@example.com',
+        lastLogin: '2021-02-03',
+        paymentDate: '2021-03-04',
+        paymentStatus: 'unpaid',
+        amount: 100,
+        currency: 'USD',
+        activityStatus: 'active',
+        details: [
+            {
+                id: 'eefdfdsd-4636-462a-8211-9697932dbf34',
+                date: '2021-02-06',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+        ],
+    },
+    {
+        id: 'c332d522-3375-47f1-ae36-0d4f6vcxe0b91',
+        firstName: 'Neea',
+        lastName: 'Kemppainen',
+        email: 'neea.kemppainen@example.com',
+        lastLogin: '2021-07-21',
+        paymentDate: '2021-09-22',
+        paymentStatus: 'paid',
+        amount: 375,
+        currency: 'USD',
+        activityStatus: 'inactive',
+        details: [
+            {
+                id: 'eefdfdsd-3279-462a-8211-9697932dbf34',
+                date: '2021-09-11',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+            {
+                id: 'eefdfdsd-4636-462a-9854-9697932dbf34',
+                date: '2021-10-11',
+                activity:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies.',
+                detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, sed purus eu semper morbi id nunc, adipiscing vitae. Ultricies suspendisse vestibulum.',
+            },
+        ],
+    },
 ];
 
 export default users;

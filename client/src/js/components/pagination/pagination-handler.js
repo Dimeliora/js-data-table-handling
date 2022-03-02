@@ -42,6 +42,8 @@ const paginationHandler = () => {
         getPaginationPageChangeHandler(1)
     );
 
+    ee.on('table/filters-applying', setFirstPage);
+
     ee.on('table/users-list-handled', updatePaginationAfterFiltering);
 };
 
@@ -103,6 +105,10 @@ const updatePaginationAfterFiltering = (usersCount) => {
     } else {
         updatePaginationView(usersCount, rowsPerPage, currentPage);
     }
+};
+
+const setFirstPage = () => {
+    handleState.setCurrentPage(1);
 };
 
 paginationHandler();
