@@ -19,7 +19,7 @@
     }
 
     &--small {
-        @include round-highlight($gray-light-transparent, 24px);
+        @include round-highlight($gray-light-transparent, 20px);
 
         .icon-button__icon {
             width: 10px;

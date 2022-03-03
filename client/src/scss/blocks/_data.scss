@@ -4,6 +4,11 @@
     background-color: #ffffff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
+    &__table-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
     &__pagination {
         display: flex;
         justify-content: flex-end;

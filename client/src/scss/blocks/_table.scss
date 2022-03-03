@@ -1,11 +1,13 @@
 .table {
     width: 100%;
+    min-width: 850px;
     border-collapse: collapse;
 
     &__header {
         display: grid;
-        grid-template-columns: 85px 0.7fr 1fr 0.7fr 190px;
+        grid-template-columns: 30px 35px 1fr 1fr 0.7fr 70px 120px;
         align-items: center;
+        column-gap: 10px;
         padding: 12px 20px;
         border-top: 1px solid $blue-light;
         border-bottom: 1px solid $blue-light;
@@ -14,9 +16,17 @@
         letter-spacing: 0.5px;
         text-transform: uppercase;
 
-        th {
-            font-weight: 500;
-            text-align: left;
+        @media screen and (max-width: $lg) {
+            grid-template-columns: 30px 35px 1fr 0.7fr 0.7fr 70px 50px;
+        }
+    }
+
+    &__header-cell {
+        font-weight: 500;
+        text-align: left;
+
+        &--right {
+            text-align: right;
         }
     }
 
@@ -35,5 +45,9 @@
     &__placeholder {
         @include row-placeholder();
         border-bottom: 1px solid $blue-light;
+    }
+
+    &__right {
+        text-align: right;
     }
 }

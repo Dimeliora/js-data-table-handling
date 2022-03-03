@@ -1,9 +1,14 @@
 .row {
     display: grid;
-    grid-template-columns: 40px 45px 0.7fr 1fr 0.7fr 60px 130px;
+    grid-template-columns: 30px 35px 1fr 1fr 0.7fr 70px 120px;
     align-items: center;
+    column-gap: 10px;
     padding: 10px 20px;
     border-bottom: 1px solid $blue-light;
+
+    @media screen and (max-width: $lg) {
+        grid-template-columns: 30px 35px 1fr 0.7fr 0.7fr 70px 50px;
+    }
 
     &__details-button {
         transition: transform 0.4s ease-out;
@@ -13,7 +18,14 @@
         }
     }
 
+    &__user {
+        overflow: hidden;
+    }
+
     &__name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         color: $black;
         font-size: 1.4rem;
         font-weight: 500;
@@ -21,6 +33,9 @@
 
     &__email {
         margin-top: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         font-size: 1.4rem;
     }
 
@@ -58,6 +73,7 @@
     }
 
     &__more {
+        position: relative;
         justify-self: end;
     }
 
@@ -85,6 +101,10 @@
 
     &__more-text {
         margin-right: 15px;
+
+        @media screen and (max-width: $lg) {
+            display: none;
+        }
     }
 
     &__more-icon {
@@ -92,9 +112,5 @@
         height: 20px;
         fill: $gray;
         transition: fill 0.2s ease-out;
-    }
-
-    &__more-dropdown {
-        position: relative;
     }
 }
