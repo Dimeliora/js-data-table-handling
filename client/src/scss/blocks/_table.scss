@@ -19,6 +19,10 @@
         @media screen and (max-width: $lg) {
             grid-template-columns: 30px 35px 1fr 0.7fr 0.7fr 70px 50px;
         }
+
+        @media screen and (max-width: $sm) {
+            padding: 12px 10px;
+        }
     }
 
     &__header-cell {

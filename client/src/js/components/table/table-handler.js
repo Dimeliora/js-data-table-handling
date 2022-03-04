@@ -23,7 +23,7 @@ import {
 } from './table-view-updates';
 import { compose } from '../../utils/compose';
 import {
-    sliceUsersList,
+    chunkUsersList,
     searchUsersByProperties,
     sortUsersListByProperty,
     filterUsersByPaymentStatus,
@@ -65,13 +65,13 @@ const updateTable = () => {
     const handlersValues = handleState.getHandlersValues();
 
     const handledUsersList = handleUsersList(users, handlersValues);
-    const usersListSlice = sliceUsersList(
+    const usersListChunk = chunkUsersList(
         handledUsersList,
         handlersValues.rowsPerPage,
         handlersValues.currentPage
     );
 
-    renderTableRows(usersListSlice);
+    renderTableRows(usersListChunk);
 
     ee.emit('table/users-list-handled', handledUsersList.length);
 };

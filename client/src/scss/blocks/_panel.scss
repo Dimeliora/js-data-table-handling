@@ -3,6 +3,11 @@
     align-items: center;
     padding: 15px 20px;
 
+    @media screen and (max-width: $sm) {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
     &__filters {
         position: relative;
     }
@@ -20,6 +25,10 @@
         font-weight: 500;
         cursor: pointer;
         transition: box-shadow 0.2s ease-out;
+
+        @media screen and (max-width: $md) {
+            margin-right: 15px;
+        }
 
         &--active,
         &:focus-visible,
@@ -44,11 +53,21 @@
         display: flex;
         align-items: center;
         width: 392px;
-        padding: 10px 15px 10px 10px;
+        padding: 10px;
         border: 1px solid transparent;
         border-radius: 6px;
         background-color: $light;
         transition: all 0.2s ease-out;
+
+        @media screen and (max-width: $md) {
+            width: 270px;
+        }
+
+        @media screen and (max-width: $sm) {
+            order: 2;
+            width: 100%;
+            margin-top: 20px;
+        }
 
         &:focus-within,
         &:hover {

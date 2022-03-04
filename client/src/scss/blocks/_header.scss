@@ -9,13 +9,17 @@
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-
         border-bottom: 1px solid $gray-light;
+
+        @media screen and (max-width: $sm) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__filter {
         display: flex;
         list-style-type: none;
+        user-select: none;
     }
 
     &__filter-item {
@@ -68,6 +72,10 @@
     &__amount {
         font-size: 1.4rem;
         font-weight: 500;
+
+        @media screen and (max-width: $sm) {
+            margin-bottom: 20px;
+        }
     }
 
     &__amount-value {

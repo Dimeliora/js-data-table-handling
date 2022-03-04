@@ -45,4 +45,8 @@ button:focus {
     max-width: 1140px;
     margin: 0 auto;
     padding: 50px 20px;
+
+    @media screen and (max-width: $sm) {
+        padding: 30px 10px;
+    }
 }
