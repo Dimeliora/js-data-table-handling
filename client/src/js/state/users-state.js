@@ -1,5 +1,3 @@
-import users from './users-mocks';
-
 class UsersState {
     users = [];
 

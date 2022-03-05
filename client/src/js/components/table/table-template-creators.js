@@ -133,7 +133,7 @@ export const createTableRowHTML = (user) => {
             </td>
 
             <td class="row__more">
-                <button class="row__more-button" data-more-button>
+                <button class="row__more-button" data-more-button aria-label="View more">
                     <span class="row__more-text">View More</span>
                     <svg class="row__more-icon">
                         <use href="/icons/icon-sprite.svg#more" />
@@ -241,10 +241,10 @@ export const createDetailsTableRowPlaceholderHTML = () => {
     `;
 };
 
-export const createTablePlaceholderHTML = () => {
+export const createTablePlaceholderHTML = (message) => {
     return `
         <div class="data__table-placeholder">
-            Service is unreachable. Try later
+            ${message}
         </div>
     `;
 };

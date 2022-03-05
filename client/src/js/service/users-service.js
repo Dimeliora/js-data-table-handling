@@ -4,7 +4,7 @@ export const fetchAllUsers = async () => {
     const response = await fetch(`${BASE_URL}/users`);
 
     if (!response.ok) {
-        throw new Error('Service is unreachable');
+        throw new Error('Service is unreachable. Try later');
     }
 
     return response.json();

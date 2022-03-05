@@ -67,7 +67,9 @@ const tableHandler = async () => {
 
         ee.on('pagination/current-page-changed', updateTable);
     } catch (error) {
-        tableWrapperElement.innerHTML = createTablePlaceholderHTML();
+        tableWrapperElement.innerHTML = createTablePlaceholderHTML(
+            error.message
+        );
     }
 };
 
