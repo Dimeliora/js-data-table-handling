@@ -1,7 +1,11 @@
-export const tableElements = {
+export const tableWrapperElement = document.querySelector(
+    '[data-table-wrapper]'
+);
+
+export const getTableElements = () => ({
     tableBodyElement: document.querySelector('[data-table]'),
     tableCheckAllElement: document.querySelector('[data-check-all]'),
-};
+});
 
 export const getTableRowCheckInputs = (tableBodyElement) =>
     tableBodyElement.querySelectorAll('[data-check]');

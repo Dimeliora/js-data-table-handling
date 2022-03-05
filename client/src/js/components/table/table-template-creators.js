@@ -12,6 +12,46 @@ const paymentStatusTextMap = {
     overdue: 'Dued',
 };
 
+export const createTableHTML = () => {
+    return `
+        <table class="data__table table">
+            <thead>
+                <tr class="table__header">
+                    <th class="table__check checkbox">
+                        <input
+                            type="checkbox"
+                            class="checkbox__input"
+                            id="check-all"
+                            data-check-all
+                        />
+                        <label
+                            for="check-all"
+                            class="checkbox__label"
+                            ><span
+                                class="checkbox__label-text visually-hidden"
+                                >Check all users</span
+                            ></label
+                        >
+                    </th>
+                    <th class="table__header-cell"></th>
+                    <th class="table__header-cell">Name</th>
+                    <th class="table__header-cell">User status</th>
+                    <th class="table__header-cell">
+                        Payments status
+                    </th>
+                    <th
+                        class="table__header-cell table__header-cell--right"
+                    >
+                        Amount
+                    </th>
+                    <th class="table__header-cell"></th>
+                </tr>
+            </thead>
+            <tbody data-table></tbody>
+        </table>
+    `;
+};
+
 export const createTableRowHTML = (user) => {
     const {
         id,
@@ -198,5 +238,13 @@ export const createDetailsTableRowPlaceholderHTML = () => {
                 No records found
             </td>
         </tr>
+    `;
+};
+
+export const createTablePlaceholderHTML = () => {
+    return `
+        <div class="data__table-placeholder">
+            Service is unreachable. Try later
+        </div>
     `;
 };

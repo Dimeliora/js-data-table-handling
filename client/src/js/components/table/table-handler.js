@@ -1,15 +1,20 @@
 import ee from '../../utils/event-emitter';
 import usersState from '../../state/users-state';
 import handleState from '../../state/handle-state';
+import { fetchAllUsers } from '../../service/users-service';
+import { createPreloaderHTML } from '../preloader/preloader-template.creators';
 import {
+    createTableHTML,
     createTableRowHTML,
     createDetailsTableHTML,
     createDetailsTableRowHTML,
+    createTablePlaceholderHTML,
     createTableRowPlaceholderHTML,
     createDetailsTableRowPlaceholderHTML,
 } from './table-template-creators';
 import {
-    tableElements,
+    getTableElements,
+    tableWrapperElement,
     getTableRowCheckInputs,
     getDetailsTableElement,
     getTableRowInnerElements,
@@ -30,28 +35,40 @@ import {
     filterUsersByActivityStatus,
 } from './users-list-handlers';
 
-const tableHandler = () => {
-    const { tableBodyElement, tableCheckAllElement } = tableElements;
+const tableHandler = async () => {
+    try {
+        tableWrapperElement.innerHTML = createPreloaderHTML();
 
-    updateTable();
+        const users = await fetchAllUsers();
 
-    window.addEventListener('click', hideUserMoreDropdownByOutsideClick);
+        usersState.setUsers(users);
 
-    tableBodyElement.addEventListener('click', tableClickHandler);
+        tableWrapperElement.innerHTML = createTableHTML();
 
-    tableCheckAllElement.addEventListener('change', checkAllUsersHandler);
+        updateTable();
 
-    ee.on('header/filter-changed', setFirstPageAndUpdateTable);
+        const { tableBodyElement, tableCheckAllElement } = getTableElements();
 
-    ee.on('panel/filter-changed', setFirstPageAndUpdateTable);
+        window.addEventListener('click', hideUserMoreDropdownByOutsideClick);
 
-    ee.on('panel/search-value-changed', setFirstPageAndUpdateTable);
+        tableBodyElement.addEventListener('click', tableClickHandler);
 
-    ee.on('panel/sort-by-changed', updateTable);
+        tableCheckAllElement.addEventListener('change', checkAllUsersHandler);
 
-    ee.on('pagination/rows-per-page-changed', updateTable);
+        ee.on('header/filter-changed', setFirstPageAndUpdateTable);
 
-    ee.on('pagination/current-page-changed', updateTable);
+        ee.on('panel/filter-changed', setFirstPageAndUpdateTable);
+
+        ee.on('panel/search-value-changed', setFirstPageAndUpdateTable);
+
+        ee.on('panel/sort-by-changed', updateTable);
+
+        ee.on('pagination/rows-per-page-changed', updateTable);
+
+        ee.on('pagination/current-page-changed', updateTable);
+    } catch (error) {
+        tableWrapperElement.innerHTML = createTablePlaceholderHTML();
+    }
 };
 
 const setFirstPageAndUpdateTable = () => {
@@ -96,7 +113,7 @@ const handleUsersList = (users, handlersValues) => {
 };
 
 const renderTableRows = (users) => {
-    const { tableBodyElement } = tableElements;
+    const { tableBodyElement } = getTableElements();
 
     let tableRowsMarkup;
     if (users.length > 0) {
@@ -191,7 +208,7 @@ const deleteUserHandler = (tableRowElement) => {
 };
 
 const checkAllUsersHandler = (event) => {
-    const { tableBodyElement } = tableElements;
+    const { tableBodyElement } = getTableElements();
     const tableRowsCheckInputs = getTableRowCheckInputs(tableBodyElement);
 
     for (const checkInput of tableRowsCheckInputs) {

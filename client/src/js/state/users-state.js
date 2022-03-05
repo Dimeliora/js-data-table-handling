@@ -1,7 +1,7 @@
 import users from './users-mocks';
 
 class UsersState {
-    users = users;
+    users = [];
 
     get paidAmount() {
         return this.users.reduce((total, user) => {
@@ -11,6 +11,10 @@ class UsersState {
 
             return total;
         }, 0);
+    }
+
+    setUsers(users) {
+        this.users = users;
     }
 
     getAllUsers() {

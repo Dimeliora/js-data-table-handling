@@ -1,4 +1,4 @@
-import { tableElements } from './table-dom-elements';
+import { getTableElements } from './table-dom-elements';
 
 export const toggleUserDetailsTable = (
     tableRowDetailsButtonElement,
@@ -21,15 +21,15 @@ export const toggleUserDetailsTable = (
 };
 
 export const showUserMoreDropdown = (dropdownElement) => {
-    const visibleDropdown =
-        tableElements.tableBodyElement.querySelector('.more--visible');
+    const { tableBodyElement } = getTableElements();
+
+    const visibleDropdown = tableBodyElement.querySelector('.more--visible');
     if (visibleDropdown) {
         hideUserMoreDropdown(visibleDropdown);
     }
 
     const dropdownBottomCoord = dropdownElement.getBoundingClientRect().bottom;
-    const tableBottomCoord =
-        tableElements.tableBodyElement.getBoundingClientRect().bottom;
+    const tableBottomCoord = tableBodyElement.getBoundingClientRect().bottom;
 
     if (dropdownBottomCoord > tableBottomCoord) {
         dropdownElement.style.setProperty('bottom', '-19px');
@@ -51,8 +51,9 @@ export const hideUserMoreDropdown = (dropdownElement) => {
 };
 
 export const hideUserMoreDropdownByOutsideClick = (event) => {
-    const visibleDropdown =
-        tableElements.tableBodyElement.querySelector('.more--visible');
+    const { tableBodyElement } = getTableElements();
+
+    const visibleDropdown = tableBodyElement.querySelector('.more--visible');
 
     if (!visibleDropdown) {
         return;

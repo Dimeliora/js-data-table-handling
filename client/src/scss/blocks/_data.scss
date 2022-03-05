@@ -5,9 +5,18 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
     &__table-wrapper {
+        display: flex;
         margin-top: -35px;
         padding-top: 35px;
         overflow-x: auto;
         overflow-y: hidden;
+    }
+
+    &__table-placeholder {
+        margin: auto;
+        padding: 30px;
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-align: center;
     }
 }
