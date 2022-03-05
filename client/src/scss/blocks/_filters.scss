@@ -20,6 +20,8 @@
 
     &__close {
         @include dropdown-close-button();
+        left: unset;
+        right: -25px;
     }
 
     &__title {
@@ -47,8 +49,7 @@
         border-radius: 4px;
         transition: background-color 0.2s ease-out;
 
-        &:hover,
-        &:focus-visible {
+        &:hover {
             background-color: $white;
         }
     }
