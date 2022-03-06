@@ -218,8 +218,7 @@ const build = series(
 
 // ======== Prod Task ========
 const prod = series(
-    clearDist,
-    parallel(html, scss, js, images, webpConvert, svg, fonts),
+    build,
     series(makeFavicons, injectFavicons, clearFaviconData)
 );
 
