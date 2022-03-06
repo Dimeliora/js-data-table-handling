@@ -26,6 +26,7 @@ export const showUserMoreDropdown = (dropdownElement) => {
     const visibleDropdown = tableBodyElement.querySelector('.more--visible');
     if (visibleDropdown) {
         hideUserMoreDropdown(visibleDropdown);
+        return;
     }
 
     const dropdownBottomCoord = dropdownElement.getBoundingClientRect().bottom;
